@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://36yusdyydgpg"]
+
+[ext_resource type="Script" path="res://Scripts/AutoLoad/scene_changer.gd" id="1_accfb"]
+
+[node name="SceneChanger" type="CanvasLayer"]
+script = ExtResource("1_accfb")
