@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://36ta05f4squ1"]
+
+[ext_resource type="Texture2D" uid="uid://wn2dlkrgqwjr" path="res://Assets/finallukasdaki64.png" id="1_fq4er"]
+[ext_resource type="PackedScene" uid="uid://dttmyg0yb58qu" path="res://Scenes/debug_char.tscn" id="1_gvyeb"]
+
+[node name="Debug" type="Node2D"]
+position = Vector2(247, 174)
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(424, 160)
+scale = Vector2(0.632944, 0.579)
+texture = ExtResource("1_fq4er")
+
+[node name="DebugChar" parent="." instance=ExtResource("1_gvyeb")]
+position = Vector2(441, 163)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="DebugChar"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(441, 163)
+zoom = Vector2(2, 2)
