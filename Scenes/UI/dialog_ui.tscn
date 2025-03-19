@@ -1,0 +1,132 @@
+[gd_scene load_steps=14 format=3 uid="uid://dp3mqpewgaiii"]
+
+[ext_resource type="Script" path="res://Scripts/UI/dialog_ui.gd" id="1_ofyrh"]
+[ext_resource type="Theme" uid="uid://d0orvyo1tbee3" path="res://Assets/Themes/PixelButtonWide.tres" id="2_252oq"]
+[ext_resource type="Texture2D" uid="uid://bneol8g2oseif" path="res://Assets/Sprites/humanportraitsheet.png" id="3_utvi7"]
+[ext_resource type="Script" path="res://Scripts/UI/human_portrait.gd" id="4_6unqq"]
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="5_eksq2"]
+[ext_resource type="StyleBox" uid="uid://5i5aidrwwauy" path="res://Assets/Themes/Buttons/focus_btn.tres" id="6_30dx6"]
+[ext_resource type="StyleBox" uid="uid://dcmyup1awfksf" path="res://Assets/Themes/Buttons/hover_btn.tres" id="7_oj1qt"]
+[ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="8_euyqa"]
+[ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="9_6on1e"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="10_jp0a0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
+atlas = ExtResource("3_utvi7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Theme" id="Theme_06yea"]
+default_font = ExtResource("5_eksq2")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_jwvw8"]
+default_font = ExtResource("5_eksq2")
+default_font_size = 32
+Button/styles/focus = ExtResource("6_30dx6")
+Button/styles/hover = ExtResource("7_oj1qt")
+Button/styles/normal = ExtResource("8_euyqa")
+Button/styles/pressed = ExtResource("9_6on1e")
+
+[node name="DialogUI" type="CanvasLayer"]
+script = ExtResource("1_ofyrh")
+
+[node name="DialogueTextBox" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -207.0
+offset_right = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="PanelContainer" parent="DialogueTextBox"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueTextBox/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Chat" type="HBoxContainer" parent="DialogueTextBox/Panel/MarginContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Dialogue" type="VBoxContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat/Dialogue"]
+layout_mode = 2
+
+[node name="DialogueOptions" type="GridContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat/Dialogue/CenterContainer"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+theme = ExtResource("2_252oq")
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+
+[node name="PortraitControl" type="Control" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Portrait" type="TextureRect" parent="DialogueTextBox/Panel/MarginContainer/Chat/PortraitControl"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 28.0
+offset_top = -2.0
+offset_right = 156.0
+offset_bottom = 126.0
+texture = SubResource("AtlasTexture_vq3rd")
+expand_mode = 2
+stretch_mode = 1
+script = ExtResource("4_6unqq")
+
+[node name="PortraitName" type="RichTextLabel" parent="DialogueTextBox/Panel/MarginContainer/Chat/PortraitControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 131.0
+offset_right = 193.0
+offset_bottom = 188.0
+theme = SubResource("Theme_06yea")
+bbcode_enabled = true
+text = "SilapachairuengSilapachairueng"
+
+[node name="DialogueControl" type="Control" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.0
+
+[node name="DialogueLine" type="RichTextLabel" parent="DialogueTextBox/Panel/MarginContainer/Chat/DialogueControl"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00677, 1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_jwvw8")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis condimentum pellentesque. Maecenas venenatis arcu."
+script = ExtResource("10_jp0a0")
+seconds_per_step = 1.0
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+
+[node name="VocalBeep" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true

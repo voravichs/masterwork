@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://dp3mqpewgaiii"]
+
+[ext_resource type="Script" path="res://Scripts/UI/dialog_ui.gd" id="1_lxi2d"]
+[ext_resource type="Texture2D" uid="uid://bneol8g2oseif" path="res://Assets/Sprites/humanportraitsheet.png" id="2_lgktj"]
+[ext_resource type="Script" path="res://Scripts/UI/human_portrait.gd" id="3_nsmvk"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_vi61b"]
+[ext_resource type="StyleBox" uid="uid://5i5aidrwwauy" path="res://Assets/Themes/Buttons/focus_btn.tres" id="4_wx3ed"]
+[ext_resource type="StyleBox" uid="uid://dcmyup1awfksf" path="res://Assets/Themes/Buttons/hover_btn.tres" id="5_sgly8"]
+[ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="6_8r2hu"]
+[ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="7_qa4g7"]
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="8_q0srp"]
+[ext_resource type="Theme" uid="uid://d0orvyo1tbee3" path="res://Assets/Themes/PixelButtonWide.tres" id="10_ee5g8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
+atlas = ExtResource("2_lgktj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Theme" id="Theme_06yea"]
+default_font = ExtResource("8_q0srp")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_jwvw8"]
+default_font = ExtResource("8_q0srp")
+default_font_size = 32
+Button/styles/focus = ExtResource("4_wx3ed")
+Button/styles/hover = ExtResource("5_sgly8")
+Button/styles/normal = ExtResource("6_8r2hu")
+Button/styles/pressed = ExtResource("7_qa4g7")
+
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lxi2d")
+
+[node name="Dialogue" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 86.0
+offset_right = 480.0
+offset_bottom = 404.0
+mouse_filter = 2
+theme_override_constants/separation = 32
+
+[node name="Chat" type="HBoxContainer" parent="Dialogue"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/Chat"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+
+[node name="Control" type="Control" parent="Dialogue/Chat/MarginContainer"]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="Dialogue/Chat/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = SubResource("AtlasTexture_vq3rd")
+expand_mode = 2
+stretch_mode = 1
+script = ExtResource("3_nsmvk")
+
+[node name="PortraitName" type="RichTextLabel" parent="Dialogue/Chat/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 136.0
+offset_right = 128.0
+offset_bottom = 207.0
+theme = SubResource("Theme_06yea")
+bbcode_enabled = true
+text = "Silapachairueng"
+
+[node name="Control2" type="Control" parent="Dialogue/Chat/MarginContainer"]
+layout_mode = 2
+
+[node name="DialogueLine" type="RichTextLabel" parent="Dialogue/Chat/MarginContainer/Control2"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 140.0
+offset_right = 427.0
+offset_bottom = 175.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_jwvw8")
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis condimentum pellentesque. Maecenas venenatis arcu."
+script = ExtResource("3_vi61b")
+seconds_per_step = 1.0
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+
+[node name="CenterContainer" type="CenterContainer" parent="Dialogue"]
+layout_mode = 2
+
+[node name="DialogueOptions" type="GridContainer" parent="Dialogue/CenterContainer"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 2
+theme = ExtResource("10_ee5g8")
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16

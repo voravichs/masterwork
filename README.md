@@ -1,2 +1,2 @@
 # Masterwork
-Ai is people, people is ai
+Ai is people, people is ai 

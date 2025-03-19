@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://btb0t5a2pv8m5"]
+
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="1_2be0f"]
+
+[resource]
+default_font = ExtResource("1_2be0f")
+default_font_size = 32
