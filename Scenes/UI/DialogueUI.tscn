@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp3mqpewgaiii"]
+[gd_scene load_steps=15 format=3 uid="uid://dp3mqpewgaiii"]
 
 [ext_resource type="Script" path="res://Scripts/UI/dialog_ui.gd" id="1_ofyrh"]
 [ext_resource type="Theme" uid="uid://d0orvyo1tbee3" path="res://Assets/Themes/PixelButtonWide.tres" id="2_252oq"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="8_euyqa"]
 [ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="9_6on1e"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="10_jp0a0"]
+[ext_resource type="Script" path="res://Scenes/UI/symbol_dialogue.gd" id="11_2as6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
 atlas = ExtResource("3_utvi7")
@@ -61,16 +62,16 @@ custom_minimum_size = Vector2(0, 175)
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Dialogue" type="VBoxContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+[node name="Options" type="VBoxContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
 visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 32
 
-[node name="CenterContainer" type="CenterContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat/Dialogue"]
+[node name="CenterContainer" type="CenterContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat/Options"]
 layout_mode = 2
 
-[node name="DialogueOptions" type="GridContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat/Dialogue/CenterContainer"]
+[node name="DialogueOptions" type="GridContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat/Options/CenterContainer"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
@@ -79,6 +80,7 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 
 [node name="PortraitControl" type="Control" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
@@ -106,6 +108,7 @@ bbcode_enabled = true
 text = "SilapachairuengSilapachairueng"
 
 [node name="DialogueControl" type="Control" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 7.0
@@ -128,5 +131,16 @@ script = ExtResource("10_jp0a0")
 seconds_per_step = 1.0
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
+[node name="SymbolDialogue" type="HFlowContainer" parent="DialogueTextBox/Panel/MarginContainer/Chat"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("11_2as6u")
+
+[node name="Timer" type="Timer" parent="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue"]
+wait_time = 0.05
+
 [node name="VocalBeep" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
+
+[connection signal="timeout" from="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue/Timer" to="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue" method="_on_timer_timeout"]

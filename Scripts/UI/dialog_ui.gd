@@ -1,4 +1,4 @@
-class_name DialogUI extends CanvasLayer
+class_name DialogueUI extends CanvasLayer
 
 @onready var portrait: TextureRect = %Portrait
 @onready var portrait_name: RichTextLabel = %PortraitName
@@ -6,6 +6,7 @@ class_name DialogUI extends CanvasLayer
 @onready var dialogue_options: GridContainer = %DialogueOptions
 @onready var choice_button_scn = preload("res://Scenes/UI/choice_button.tscn")
 @onready var vocal_beep: AudioStreamPlayer = %VocalBeep
+@onready var symbol_dialogue = %SymbolDialogue
 
 var waiting_on_decision: bool = false
 var portrait_db_ref
@@ -18,7 +19,7 @@ const DIALOGUE_FILE = "res://Dialogues/test_dialogue.dialogue"
 # Emitted when dialogue is complete
 signal finished_dialogue()
 
-func with_data(input_dialogue_resource, dialog_title) -> DialogUI:
+func with_data(input_dialogue_resource, dialog_title) -> DialogueUI:
 	# Get the first line in the starting dialogue
 	dialogue_resource = input_dialogue_resource
 	line = await input_dialogue_resource.get_next_dialogue_line(dialog_title)
@@ -36,6 +37,7 @@ func _ready() -> void:
 	process_dialogue()
 	# clear any previous options
 	clear_options()
+	#symbol_dialogue.display_text("I'm Kaito Tachibana. I programmed a really fucked up AI Human.")
 
 func _input(event: InputEvent) -> void:
 	# Prevent input if next line is null
@@ -73,8 +75,6 @@ func clear_options():
 
 # sets the dialogue text to DialogueLine, and set the portrait
 func process_dialogue():
-	# Set Vocal Beep
-	#vocal_beep.stream = cat_vocal_beep
 	# Error checking for portrait and line's character
 	if !portrait_db_ref.PORTRAITS.has(line.character):
 		printerr("Bad portrait_db key")
@@ -87,8 +87,9 @@ func process_dialogue():
 	else:
 		portrait_name.text = "[center]" + line.character 
 	# Type out dialogue
-	dialogue_line.dialogue_line = line
-	dialogue_line.type_out()
+	#dialogue_line.dialogue_line = line
+	#dialogue_line.type_out()
+	symbol_dialogue.display_text(line.text)
 
 # Changes the line and shows the responses in a formatted way
 func _show_responses():

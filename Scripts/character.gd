@@ -10,19 +10,22 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	get_input()
-	move_and_slide()
-	select_animation()
 	update_anim_params()
 
 func get_input():
-	input_direction = Input.get_vector("left","right","up","down")
-	velocity = input_direction * 300
-
-func select_animation():
-	if velocity == Vector2.ZERO:
+	if Global.INTERACTING:
 		playback.travel("Idle")
 	else:
-		playback.travel("Walk")
+		input_direction = Input.get_vector("left","right","up","down")
+		velocity = input_direction * 300
+		
+		# Select Animation
+		if velocity == Vector2.ZERO:
+			playback.travel("Idle")
+		else:
+			playback.travel("Walk")
+		
+		move_and_slide()
 
 func update_anim_params():
 	if input_direction == Vector2.ZERO:
