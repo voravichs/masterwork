@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wn2dlkrgqwjr"
-path="res://.godot/imported/finallukasdaki64.png-5d24c6d89104c524c0b8b9e4cc504dfa.ctex"
+uid="uid://8qmjkrsn77t1"
+path="res://.godot/imported/mw_letters_FULL.png-01916c7302138f6a451efab123ccde3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/finallukasdaki64.png"
-dest_files=["res://.godot/imported/finallukasdaki64.png-5d24c6d89104c524c0b8b9e4cc504dfa.ctex"]
+source_file="res://Assets/Sprites/mw_letters_FULL.png"
+dest_files=["res://.godot/imported/mw_letters_FULL.png-01916c7302138f6a451efab123ccde3f.ctex"]
 
 [params]
 

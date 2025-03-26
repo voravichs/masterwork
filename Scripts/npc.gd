@@ -15,8 +15,8 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_show_dialogue")
 
 func _show_dialogue():
-	var debug_dialogue_resource = load(dialogue_file)
-	dialog_ui_reference = DIALOG_UI.instantiate().with_data(debug_dialogue_resource, "start")
+	var dialogue_resource = load(dialogue_file)
+	dialog_ui_reference = DIALOG_UI.instantiate().with_data(dialogue_resource, "start")
 	root.add_child(dialog_ui_reference)
 	dialog_ui_reference.finished_dialogue.connect(_remove_dialogue)
 	await dialog_ui_reference.finished_dialogue

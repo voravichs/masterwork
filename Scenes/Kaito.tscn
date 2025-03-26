@@ -435,13 +435,13 @@ animation_tree = NodePath("AnimationTree")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = SubResource("CanvasTexture_y1flk")
-offset = Vector2(0, 9)
+offset = Vector2(0, 12)
 hframes = 8
 vframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 48)
+position = Vector2(0, 60)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_ck1jf")
 
@@ -455,3 +455,5 @@ tree_root = SubResource("AnimationNodeStateMachine_umvma")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

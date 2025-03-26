@@ -37,7 +37,6 @@ func _ready() -> void:
 	process_dialogue()
 	# clear any previous options
 	clear_options()
-	#symbol_dialogue.display_text("I'm Kaito Tachibana. I programmed a really fucked up AI Human.")
 
 func _input(event: InputEvent) -> void:
 	# Prevent input if next line is null
@@ -46,8 +45,11 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("dialogic_default_action"):
 		# Skip typing out if input detected while typing
-		if dialogue_line.is_typing:
-			dialogue_line.skip_typing()
+		#if dialogue_line.is_typing:
+			#dialogue_line.skip_typing()
+			#return
+		if symbol_dialogue.is_typing:
+			symbol_dialogue.skip = true
 			return
 		# Prevent input if still waiting on a decision
 		if waiting_on_decision:
