@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="8_euyqa"]
 [ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="9_6on1e"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="10_jp0a0"]
-[ext_resource type="Script" path="res://Scripts/symbol_dialogue.gd" id="11_2as6u"]
+[ext_resource type="Script" path="res://Scripts/UI/symbol_dialogue.gd" id="11_2as6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
 atlas = ExtResource("3_utvi7")

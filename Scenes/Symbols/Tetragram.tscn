@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnb85aydhd8yk"]
+
+[ext_resource type="Script" path="res://Scripts/Symbols/tetragram.gd" id="1_rrhe4"]
+[ext_resource type="PackedScene" uid="uid://brtd8briy4nkv" path="res://Scenes/Symbols/Dot.tscn" id="3_m3ups"]
+
+[sub_resource type="Animation" id="Animation_8psi0"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_dmcat"]
+resource_name = "dot1"
+length = 1.2
+loop_mode = 1
+step = 0.15
+
+[sub_resource type="Animation" id="Animation_fxvak"]
+resource_name = "dot2"
+length = 1.2
+loop_mode = 1
+step = 0.15
+
+[sub_resource type="Animation" id="Animation_2yw1h"]
+resource_name = "dot3"
+length = 1.2
+loop_mode = 1
+step = 0.15
+
+[sub_resource type="Animation" id="Animation_oljm8"]
+resource_name = "dot4"
+length = 1.2
+loop_mode = 1
+step = 0.15
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4n6i"]
+_data = {
+"RESET": SubResource("Animation_8psi0"),
+"dot1": SubResource("Animation_dmcat"),
+"dot2": SubResource("Animation_fxvak"),
+"dot3": SubResource("Animation_2yw1h"),
+"dot4": SubResource("Animation_oljm8")
+}
+
+[node name="Tetragram" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(4, 4)
+mouse_filter = 2
+script = ExtResource("1_rrhe4")
+
+[node name="Dot1" parent="." instance=ExtResource("3_m3ups")]
+position = Vector2(-20, -20)
+dot_num = 1
+
+[node name="Dot2" parent="." instance=ExtResource("3_m3ups")]
+position = Vector2(20, -20)
+dot_num = 2
+
+[node name="Dot3" parent="." instance=ExtResource("3_m3ups")]
+position = Vector2(-20, 20)
+dot_num = 3
+
+[node name="Dot4" parent="." instance=ExtResource("3_m3ups")]
+position = Vector2(20, 20)
+dot_num = 4
+
+[node name="Connections" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s4n6i")
+}
+
+[connection signal="entered" from="Dot1" to="." method="_on_dot_entered" binds= [1]]
+[connection signal="entered" from="Dot2" to="." method="_on_dot_entered" binds= [2]]
+[connection signal="entered" from="Dot3" to="." method="_on_dot_entered" binds= [3]]
+[connection signal="entered" from="Dot4" to="." method="_on_dot_entered" binds= [4]]

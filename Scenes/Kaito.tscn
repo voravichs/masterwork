@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://cbqsq8y0c1ymw"]
 
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_dxvy3"]
+[ext_resource type="Script" path="res://Scripts/Characters/character.gd" id="1_dxvy3"]
 [ext_resource type="Texture2D" uid="uid://dscyalph8jb4t" path="res://Assets/Sprites/Characters/kaito-sheet.png" id="1_ju5v7"]
 [ext_resource type="Texture2D" uid="uid://bopgek2pm1w4h" path="res://Assets/Sprites/NormalMaps/kaito-sheet_n.png" id="3_1dn16"]
 

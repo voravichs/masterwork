@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bs36psj2wh5ll"]
 
-[ext_resource type="Script" path="res://Scripts/letter_unlock.gd" id="1_2sep8"]
+[ext_resource type="Script" path="res://Scripts/Interactables/letter_unlock.gd" id="1_2sep8"]
 [ext_resource type="Texture2D" uid="uid://8qmjkrsn77t1" path="res://Assets/Sprites/mw_letters_FULL.png" id="2_21wjk"]
 [ext_resource type="PackedScene" uid="uid://cdmat1rhwyls" path="res://Scenes/InteractionArea.tscn" id="3_278r1"]
 

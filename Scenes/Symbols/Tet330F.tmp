@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnb85aydhd8yk"]
+
+[ext_resource type="Script" path="res://Scripts/Symbols/tetragram.gd" id="1_rrhe4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rrhe4")
+
+[node name="1" type="Marker2D" parent="."]
+position = Vector2(100, 100)
+
+[node name="2" type="Marker2D" parent="."]
+position = Vector2(100, 120)
+
+[node name="3" type="Marker2D" parent="."]
+position = Vector2(120, 100)
+
+[node name="4" type="Marker2D" parent="."]
+position = Vector2(120, 120)

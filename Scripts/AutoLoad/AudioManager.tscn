@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://2qfqcc1pa5nq"]
 
 [ext_resource type="Script" path="res://Scripts/AutoLoad/audio_manager.gd" id="1_78g8k"]
-[ext_resource type="Script" path="res://Scripts/sound_effect.gd" id="2_e0jh4"]
+[ext_resource type="Script" path="res://Scripts/Util/sound_effect.gd" id="2_e0jh4"]
 [ext_resource type="AudioStream" uid="uid://bmm0mrtbs36bv" path="res://Assets/Sounds/SFX/catvocalbeep.mp3" id="3_qi2sj"]
 
 [sub_resource type="Resource" id="Resource_lbfc3"]

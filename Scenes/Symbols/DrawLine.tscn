@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://oyv3042o5wmc"]
+
+[ext_resource type="Script" path="res://Scripts/Symbols/draw_line.gd" id="1_3e3dt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfb7h"]
+radius = 29.2746
+
+[node name="DrawLinePanel" type="Panel"]
+offset_left = 309.0
+offset_top = 15.0
+offset_right = 824.0
+offset_bottom = 623.0
+script = ExtResource("1_3e3dt")
+
+[node name="DrawLine" type="Line2D" parent="."]
+z_index = 20
+
+[node name="Hitbox" type="Area2D" parent="DrawLine"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DrawLine/Hitbox"]
+shape = SubResource("CircleShape2D_tfb7h")
