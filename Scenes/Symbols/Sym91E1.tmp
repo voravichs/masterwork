@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://7c6jjktcsf32"]
+
+[ext_resource type="Script" path="res://Scripts/Symbols/symbol_canvas.gd" id="1_kjqk6"]
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="3_ekfd0"]
+[ext_resource type="Texture2D" uid="uid://8qmjkrsn77t1" path="res://Assets/Sprites/mw_letters_FULL.png" id="3_lchu0"]
+[ext_resource type="PackedScene" uid="uid://bnb85aydhd8yk" path="res://Scenes/Symbols/Tetragram.tscn" id="4_wsmo4"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_es0xw"]
+load_path = "res://.godot/imported/mw_letters_FULL.png-01916c7302138f6a451efab123ccde3f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0waam"]
+atlas = SubResource("CompressedTexture2D_es0xw")
+region = Rect2(1120, 40, 40, 40)
+
+[sub_resource type="Theme" id="Theme_l8p3t"]
+default_font = ExtResource("3_ekfd0")
+default_font_size = 40
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n6e2"]
+atlas = ExtResource("3_lchu0")
+region = Rect2(1160, 40, 40, 40)
+
+[sub_resource type="Curve" id="Curve_vtrvm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="SymbolCanvas" type="CanvasLayer"]
+
+[node name="DrawingController" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kjqk6")
+MAX_LENGTH = 20
+
+[node name="CanvasPanel" type="PanelContainer" parent="DrawingController"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = -258.0
+offset_right = 218.5
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DrawingController/CanvasPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DrawingController/CanvasPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DrawingController/CanvasPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+
+[node name="Left" type="TextureRect" parent="DrawingController/CanvasPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0waam")
+
+[node name="Label" type="Label" parent="DrawingController/CanvasPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+theme = SubResource("Theme_l8p3t")
+text = "Toggle Draw"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="DrawingController/CanvasPanel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+
+[node name="Right" type="TextureRect" parent="DrawingController/CanvasPanel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7n6e2")
+
+[node name="Label" type="Label" parent="DrawingController/CanvasPanel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+theme = SubResource("Theme_l8p3t")
+text = "Undo
+"
+
+[node name="CursorLine" type="Line2D" parent="DrawingController"]
+z_index = 20
+width_curve = SubResource("Curve_vtrvm")
+
+[node name="Lines" type="Node2D" parent="DrawingController"]
+
+[node name="SymbolPattern" parent="DrawingController" instance=ExtResource("4_wsmo4")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

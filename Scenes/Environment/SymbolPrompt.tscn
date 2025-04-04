@@ -1,5 +1,31 @@
-[gd_scene format=3 uid="uid://b3mmko0s6mo3n"]
+[gd_scene load_steps=6 format=3 uid="uid://b3mmko0s6mo3n"]
+
+[ext_resource type="Texture2D" uid="uid://cgmd2vib15j5v" path="res://Assets/Sprites/Environment/scroll.png" id="1_7unue"]
+[ext_resource type="Script" path="res://Scripts/Interactables/symbol_prompt.gd" id="1_kxrkw"]
+[ext_resource type="PackedScene" uid="uid://cdmat1rhwyls" path="res://Scenes/InteractionArea.tscn" id="2_em1vj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2ip5"]
+radius = 31.1448
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3mmbg"]
+radius = 102.078
 
 [node name="SymbolPrompt" type="Node2D"]
+script = ExtResource("1_kxrkw")
+pattern = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_7unue")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_h2ip5")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_em1vj")]
+action_name = "draw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_3mmbg")

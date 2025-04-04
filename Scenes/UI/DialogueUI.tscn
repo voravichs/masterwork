@@ -28,10 +28,19 @@ Button/styles/hover = ExtResource("7_oj1qt")
 Button/styles/normal = ExtResource("8_euyqa")
 Button/styles/pressed = ExtResource("9_6on1e")
 
-[node name="DialogUI" type="CanvasLayer"]
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("1_ofyrh")
 
 [node name="DialogueTextBox" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -140,7 +149,4 @@ script = ExtResource("11_2as6u")
 [node name="Timer" type="Timer" parent="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue"]
 wait_time = 0.05
 
-[node name="VocalBeep" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-
-[connection signal="timeout" from="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue/Timer" to="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue" method="_on_timer_timeout"]
+[connection signal="timeout" from="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue/Timer" to="DialogueTextBox/Panel/MarginContainer/Chat/SymbolDialogue" method="_type_out_symbols"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnb85aydhd8yk"]
+
+[ext_resource type="Script" path="res://Scripts/Symbols/symbol_pattern.gd" id="1_rrhe4"]
+
+[node name="SymbolPattern" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(4, 4)
+mouse_filter = 2
+script = ExtResource("1_rrhe4")
+pattern = 1

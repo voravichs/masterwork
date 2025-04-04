@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://36ta05f4squ1"]
+[gd_scene load_steps=19 format=4 uid="uid://36ta05f4squ1"]
 
 [ext_resource type="Script" path="res://Scripts/Stages/debug.gd" id="1_j3nm4"]
 [ext_resource type="TileSet" uid="uid://tt4x8fcy3v1s" path="res://Tilesets/iso_grey_items.tres" id="2_ulyxo"]
@@ -8,6 +8,31 @@
 [ext_resource type="PackedScene" uid="uid://dttmyg0yb58qu" path="res://Scenes/DebugChar.tscn" id="6_7s026"]
 [ext_resource type="PackedScene" uid="uid://dpl4b1vpjait2" path="res://Scenes/Environment/Lantern.tscn" id="6_p8g18"]
 [ext_resource type="PackedScene" uid="uid://bs36psj2wh5ll" path="res://Scenes/Environment/LetterUnlock.tscn" id="8_vja8s"]
+[ext_resource type="PackedScene" uid="uid://b3mmko0s6mo3n" path="res://Scenes/Environment/SymbolPrompt.tscn" id="8_warxc"]
+[ext_resource type="PackedScene" uid="uid://b13ifkbblhsyk" path="res://Scenes/Environment/OverworldItem.tscn" id="9_jjqid"]
+[ext_resource type="Script" path="res://Scripts/Resources/item_resource.gd" id="10_bwe0m"]
+[ext_resource type="Texture2D" uid="uid://dcmh4y60gl4wy" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__05.png" id="10_c4yft"]
+[ext_resource type="Texture2D" uid="uid://pslelie6o263" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__13.png" id="12_fhsfm"]
+[ext_resource type="Texture2D" uid="uid://x3wgqy4bs837" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__23.png" id="13_gcu5o"]
+[ext_resource type="PackedScene" uid="uid://dx2gqq3nrmb51" path="res://Scenes/UI/Sidebar.tscn" id="13_p7f52"]
+
+[sub_resource type="Resource" id="Resource_6dn04"]
+script = ExtResource("10_bwe0m")
+item_type = 0
+item_name = ""
+item_texture = ExtResource("10_c4yft")
+
+[sub_resource type="Resource" id="Resource_7se43"]
+script = ExtResource("10_bwe0m")
+item_type = 0
+item_name = ""
+item_texture = ExtResource("12_fhsfm")
+
+[sub_resource type="Resource" id="Resource_whyl6"]
+script = ExtResource("10_bwe0m")
+item_type = 0
+item_name = ""
+item_texture = ExtResource("13_gcu5o")
 
 [node name="DebugScene" type="Node2D" groups=["root"]]
 script = ExtResource("1_j3nm4")
@@ -55,14 +80,38 @@ letter = "O"
 position = Vector2(643, 120)
 letter = "U"
 
-[node name="Item" type="Node" parent="Environment"]
+[node name="PromptTests" type="Node" parent="Environment"]
 
-[node name="Lantern" parent="Environment/Item" instance=ExtResource("6_p8g18")]
+[node name="Lantern" parent="Environment/PromptTests" instance=ExtResource("6_p8g18")]
 position = Vector2(191, 433)
 scale = Vector2(2, 2)
+
+[node name="SymbolPrompt" parent="Environment/PromptTests" instance=ExtResource("8_warxc")]
+position = Vector2(664, 434)
+
+[node name="Items" type="Node" parent="Environment" groups=["items"]]
+
+[node name="Item" parent="Environment/Items" instance=ExtResource("9_jjqid")]
+position = Vector2(339, 601)
+item_resource = SubResource("Resource_6dn04")
+
+[node name="Item2" parent="Environment/Items" instance=ExtResource("9_jjqid")]
+position = Vector2(502, 598)
+item_resource = SubResource("Resource_7se43")
+
+[node name="Item3" parent="Environment/Items" instance=ExtResource("9_jjqid")]
+position = Vector2(664, 595)
+item_resource = SubResource("Resource_whyl6")
+
+[node name="DebugMan" parent="Environment" instance=ExtResource("6_7s026")]
+position = Vector2(207.75, 108.25)
+scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(444, 369)
 
-[node name="DebugMan" parent="." instance=ExtResource("6_7s026")]
-position = Vector2(831, 433)
+[node name="UI" type="CanvasLayer" parent="." groups=["ui"]]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sidebar" parent="UI" instance=ExtResource("13_p7f52")]

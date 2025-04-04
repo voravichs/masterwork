@@ -15,4 +15,3 @@ func _ready() -> void:
 	label.text = text_display
 	self.visible = true
 	animation_player.play("float_disappear")
-	animation_player.animation_finished

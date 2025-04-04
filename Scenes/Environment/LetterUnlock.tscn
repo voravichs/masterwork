@@ -95,7 +95,7 @@ letter = "A"
 
 [node name="Letter" type="Sprite2D" parent="."]
 texture = ExtResource("2_21wjk")
-hframes = 28
+hframes = 30
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

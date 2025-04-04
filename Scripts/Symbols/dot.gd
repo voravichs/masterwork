@@ -1,4 +1,5 @@
 extends Node2D
+class_name Dot
 
 @export var dot_num: int
 
@@ -17,5 +18,5 @@ func _on_dot_enter() -> void:
 func _on_dot_exit() -> void:
 	animation_player.stop()
 
-func toggle_flash():
+func toggle_flash() -> void:
 	flash = not flash

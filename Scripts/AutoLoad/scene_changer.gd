@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var new_scene_path : String
 
-func change_scene(new_scene: Util.GAME_SCENES):
+func change_scene(new_scene: Util.GAME_SCENES) -> void:
 	print("change_to", new_scene)
 	match new_scene:
 		Util.GAME_SCENES.GAME:
@@ -13,5 +13,5 @@ func change_scene(new_scene: Util.GAME_SCENES):
 		$AnimationPlayer.stop()
 	$AnimationPlayer.play("Fade In Out")
 
-func _new_scene():
+func _new_scene() -> void:
 	get_tree().call_deferred("change_scene_to_file", new_scene_path)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b13ifkbblhsyk"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/overworld_item.gd" id="1_ygkdm"]
+[ext_resource type="PackedScene" uid="uid://cdmat1rhwyls" path="res://Scenes/InteractionArea.tscn" id="2_ayttd"]
+[ext_resource type="Texture2D" uid="uid://ch1sns43gfcon" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__01.png" id="2_scyrl"]
+[ext_resource type="Script" path="res://Scripts/Interactables/item_interaction_controller.gd" id="2_v4n1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkqwc"]
+radius = 24.0832
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l02ni"]
+radius = 95.0474
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_ygkdm")
+
+[node name="ItemInteractionController" type="Node2D" parent="."]
+script = ExtResource("2_v4n1q")
+
+[node name="Sprite2D" type="Sprite2D" parent="ItemInteractionController"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_scyrl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ItemInteractionController"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemInteractionController/StaticBody2D"]
+shape = SubResource("CircleShape2D_nkqwc")
+
+[node name="InteractionArea" parent="ItemInteractionController" instance=ExtResource("2_ayttd")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemInteractionController/InteractionArea"]
+shape = SubResource("CircleShape2D_l02ni")

@@ -2,19 +2,17 @@ extends Control
 
 @onready var timer: Timer = $Timer
 
-var spritesheet = preload("res://Assets/Sprites/mw_letters_FULL.png")
-var text_to_display = ""
-var current_index = 0
-
+var text_to_display : String = ""
+var current_index : int = 0
 var skip : bool
 var is_typing : bool
+var vocal_beep : SoundEffect.SOUND_EFFECT_TYPE
 
-const SPRITE_WIDTH = 40
-const SPRITE_HEIGHT = 40
-const num_columns = 28
+const CHAR_DIMENSIONS = 40
 
-func display_text(text: String):
+func display_text(text: String, sfx: SoundEffect.SOUND_EFFECT_TYPE) -> void:
 	text_to_display = text.to_upper()
+	vocal_beep = sfx
 	current_index = 0
 	for child in get_children():
 		if child != timer:
@@ -22,26 +20,14 @@ func display_text(text: String):
 	is_typing = true
 	timer.start()
 
-func get_letter_texture(char_display: String) -> AtlasTexture:
-	var index = Global.CHARACTER_MAP.get(char_display, null)
-	if index != null:
-		var x = (index % num_columns) * SPRITE_WIDTH
-		var y = (1 if Global.DISCOVERED_CHARACTER.get(char_display) else 0)  * SPRITE_HEIGHT
-		var atlas_tex = AtlasTexture.new()
-		atlas_tex.atlas = spritesheet
-		atlas_tex.region = Rect2(Vector2(x, y), Vector2(SPRITE_WIDTH, SPRITE_HEIGHT))
-		return atlas_tex
-	return null
-
-
-func _on_timer_timeout() -> void:
+func _type_out_symbols() -> void:
 	if current_index < text_to_display.length():
 		if skip:
 			for n in range(current_index,text_to_display.length()):
-				var char_display = text_to_display[current_index]
-				var letter_texture = get_letter_texture(char_display)
+				var char_display : String = text_to_display[current_index]
+				var letter_texture : Texture = Global.GET_LETTER_TEXTURE(char_display, CHAR_DIMENSIONS)
 				if letter_texture:
-					var letter_rect = TextureRect.new()
+					var letter_rect : TextureRect = TextureRect.new()
 					letter_rect.texture = letter_texture
 					add_child(letter_rect)
 				current_index += 1
@@ -49,11 +35,12 @@ func _on_timer_timeout() -> void:
 			is_typing = false
 			skip = false
 		else:
-			var char_display = text_to_display[current_index]
-			var letter_texture = get_letter_texture(char_display)
+			var char_display : String = text_to_display[current_index]
+			var letter_texture : Texture = Global.GET_LETTER_TEXTURE(char_display, CHAR_DIMENSIONS)
 			if letter_texture:
-				var letter_rect = TextureRect.new()
+				var letter_rect : TextureRect = TextureRect.new()
 				letter_rect.texture = letter_texture
+				AudioManager.create_audio(vocal_beep)
 				add_child(letter_rect)
 			current_index += 1
 	else:

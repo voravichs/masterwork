@@ -13,10 +13,10 @@ func _ready() -> void:
 	animation_player.play("float")
 	interaction_area.interact = Callable(self, "_unlock_letter")
 
-func _unlock_letter():
+func _unlock_letter() -> void:
 	if (!Global.DISCOVERED_CHARACTER[letter]):
 		Global.DISCOVERED_CHARACTER[letter] = true
 		player.show_floating_text("Unlocked " + letter + "!")
 		animation_player.play("deactivate")
 		interaction_collision.disabled = true
-	Global.INTERACTING = false
+	Global.OCCUPIED = false

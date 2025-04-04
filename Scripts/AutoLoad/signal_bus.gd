@@ -1,3 +1,3 @@
 extends Node
 
-signal dot_collided(canvas : Util.SymbolCanvas, dot_num : int)
+#signal dot_collided(canvas : Util.PatternType, dot_num : int)

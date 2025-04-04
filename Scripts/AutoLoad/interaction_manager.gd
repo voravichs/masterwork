@@ -1,18 +1,18 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
-@onready var label = $Label
+@onready var label : Label = $Label
 
 const base_text = "[E] to "
 
 var active_areas : Array[InteractionArea] = []
-var can_interact = true
+var can_interact : bool = true
 
-func register_area(area: InteractionArea):
+func register_area(area: InteractionArea) -> void:
 	active_areas.push_back(area)
 
-func unregister_area(area: InteractionArea):
-	var index = active_areas.find(area)
+func unregister_area(area: InteractionArea) -> void:
+	var index : int = active_areas.find(area)
 	if index != -1:
 		active_areas.remove_at(index)
 
@@ -27,9 +27,9 @@ func _process(_delta: float) -> void:
 	else:
 		label.hide()
 
-func _sort_by_distance_to_player(area1: InteractionArea, area2: InteractionArea):
-	var area1_to_player = player.global_position.distance_to(area1.global_position)
-	var area2_to_player = player.global_position.distance_to(area2.global_position)
+func _sort_by_distance_to_player(area1: InteractionArea, area2: InteractionArea) -> bool:
+	var area1_to_player : float = player.global_position.distance_to(area1.global_position)
+	var area2_to_player : float = player.global_position.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player
 
 func _input(event: InputEvent) -> void:
@@ -37,6 +37,6 @@ func _input(event: InputEvent) -> void:
 		if active_areas.size() > 0:
 			can_interact = false
 			label.hide()
-			Global.INTERACTING = true
+			Global.OCCUPIED = true
 			await active_areas[0].interact.call()
 			can_interact = true

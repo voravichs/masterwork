@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx2gqq3nrmb51"]
+
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="1_fbe4h"]
+[ext_resource type="Script" path="res://Scripts/UI/sidebar.gd" id="2_7py44"]
+
+[node name="Sidebar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fbe4h")
+script = ExtResource("2_7py44")
+
+[node name="Inventory" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 70.0
+grow_horizontal = 0
+text = "INVENTORY"
+
+[connection signal="pressed" from="Inventory" to="." method="_on_inventory_pressed"]

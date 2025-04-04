@@ -1,7 +1,18 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://btb0t5a2pv8m5"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://btb0t5a2pv8m5"]
 
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="1_2be0f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_turwc"]
 
 [resource]
 default_font = ExtResource("1_2be0f")
 default_font_size = 32
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_turwc")

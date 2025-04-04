@@ -1,0 +1,267 @@
+[gd_scene load_steps=18 format=3 uid="uid://7c6jjktcsf32"]
+
+[ext_resource type="Script" path="res://Scripts/Symbols/symbol_canvas.gd" id="1_c2k0d"]
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="2_w716a"]
+[ext_resource type="Texture2D" uid="uid://8qmjkrsn77t1" path="res://Assets/Sprites/mw_letters_FULL.png" id="3_1cheu"]
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="4_lp3rf"]
+[ext_resource type="PackedScene" uid="uid://bnb85aydhd8yk" path="res://Scenes/Symbols/SymbolPattern.tscn" id="5_btn3d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mot2"]
+bg_color = Color(0.12, 0.12, 0.12, 0.843137)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_es0xw"]
+load_path = "res://.godot/imported/mw_letters_FULL.png-01916c7302138f6a451efab123ccde3f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0waam"]
+atlas = SubResource("CompressedTexture2D_es0xw")
+region = Rect2(1120, 40, 40, 40)
+
+[sub_resource type="Theme" id="Theme_l8p3t"]
+default_font = ExtResource("2_w716a")
+default_font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n6e2"]
+atlas = ExtResource("3_1cheu")
+region = Rect2(1160, 40, 40, 40)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfei0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otj7p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4cmq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvb8w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l5r8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_vu1aj"]
+default_font_size = 32
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_w716a")
+Button/styles/disabled = SubResource("StyleBoxFlat_lfei0")
+Button/styles/focus = SubResource("StyleBoxFlat_otj7p")
+Button/styles/hover = SubResource("StyleBoxFlat_t4cmq")
+Button/styles/normal = SubResource("StyleBoxFlat_mvb8w")
+Button/styles/pressed = SubResource("StyleBoxFlat_4l5r8")
+
+[sub_resource type="Curve" id="Curve_vtrvm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="SymbolCanvas" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_c2k0d")
+MAX_LENGTH = 20
+
+[node name="CanvasPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.5
+offset_top = -258.0
+offset_right = 218.5
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8mot2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="CanvasPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="CanvasPanel/MarginContainer/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasPanel/MarginContainer/VBox/VBox"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+
+[node name="Left" type="TextureRect" parent="CanvasPanel/MarginContainer/VBox/VBox/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0waam")
+
+[node name="Label" type="Label" parent="CanvasPanel/MarginContainer/VBox/VBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+theme = SubResource("Theme_l8p3t")
+text = "Draw"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasPanel/MarginContainer/VBox/VBox"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+
+[node name="Right" type="TextureRect" parent="CanvasPanel/MarginContainer/VBox/VBox/HBoxContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7n6e2")
+
+[node name="Label" type="Label" parent="CanvasPanel/MarginContainer/VBox/VBox/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 9.0
+theme = SubResource("Theme_l8p3t")
+text = "Clear
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasPanel/MarginContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasPanel/MarginContainer/VBox/VBoxContainer"]
+layout_mode = 2
+
+[node name="SymbolMatchLabel" type="Label" parent="CanvasPanel/MarginContainer/VBox/VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("4_lp3rf")
+
+[node name="VBox2" type="VBoxContainer" parent="CanvasPanel/MarginContainer/VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasPanel/MarginContainer/VBox/VBox2"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+alignment = 2
+
+[node name="Confirm" type="Button" parent="CanvasPanel/MarginContainer/VBox/VBox2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_lp3rf")
+text = "Confirm"
+
+[node name="Control" type="Control" parent="CanvasPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Close" type="Button" parent="CanvasPanel/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme = SubResource("Theme_vu1aj")
+text = "X"
+
+[node name="CursorLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+z_index = 20
+width_curve = SubResource("Curve_vtrvm")
+
+[node name="Lines" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SymbolPattern" parent="." instance=ExtResource("5_btn3d")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="CanvasPanel/MarginContainer/VBox/VBox2/HBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="CanvasPanel/Control/Close" to="." method="_on_close_pressed"]
