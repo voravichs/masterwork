@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dlp8fw8237au"]
 
-[ext_resource type="PackedScene" uid="uid://2ixnfwfvytav" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
+[ext_resource type="PackedScene" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
 [ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_brnow"]
 [ext_resource type="Texture2D" uid="uid://c57hamx644beq" path="res://Assets/Sprites/194622.jpg" id="2_d8tbw"]
 [ext_resource type="Script" path="res://Scenes/icon_manager.gd" id="3_f5a20"]
