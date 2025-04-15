@@ -98,7 +98,6 @@ grow_vertical = 2
 theme = SubResource("Theme_eotkw")
 
 [node name="ShadowIcon" type="Control" parent="."]
-unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.294118)
 layout_mode = 2
 anchors_preset = 0
@@ -108,12 +107,10 @@ offset_right = -122.0
 offset_bottom = 90.0
 
 [node name="ShadowSprite" type="Sprite2D" parent="ShadowIcon"]
-unique_name_in_owner = true
 scale = Vector2(4, 4)
 texture = ExtResource("8_c5lfa")
 
 [node name="ShadowLabel" type="Label" parent="ShadowIcon"]
-unique_name_in_owner = true
 layout_mode = 0
 offset_left = -34.0
 offset_top = 36.0
@@ -126,7 +123,7 @@ label_settings = SubResource("LabelSettings_00vj5")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="IconManager" type="Control" parent="."]
+[node name="IconManager" type="GridContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -135,25 +132,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("3_f5a20")
 columns = 8
-rows = 6
+script = ExtResource("3_f5a20")
 
 [node name="DesktopIcon" parent="IconManager" instance=ExtResource("4_rkxgx")]
 layout_mode = 2
-offset_left = 337.0
-offset_top = 109.0
-offset_right = 465.0
-offset_bottom = 269.0
 desktop_resource = SubResource("Resource_gf83q")
+
+[node name="DesktopIcon3" parent="IconManager" instance=ExtResource("4_rkxgx")]
+layout_mode = 2
 
 [node name="DesktopIcon2" parent="IconManager" instance=ExtResource("4_rkxgx")]
 layout_mode = 2
-offset_left = 138.0
-offset_right = 266.0
 desktop_resource = SubResource("Resource_lx8r1")
 
 [node name="Cursor" parent="." instance=ExtResource("1_7hxjc")]
+visible = false
 
 [node name="InputManager" type="Node2D" parent="."]
 unique_name_in_owner = true

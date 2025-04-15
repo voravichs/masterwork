@@ -1,29 +1,18 @@
 extends Control
 class_name IconManager
 
-const CELL_SIZE = Vector2(128, 160)
-
-@export var columns : int
-@export var rows : int
-
 @onready var input_manager: InputManager = %InputManager
-@onready var shadow_icon: Control = %ShadowIcon
-@onready var shadow_sprite: Sprite2D = %ShadowSprite
-@onready var shadow_label: Label = %ShadowLabel
+@onready var shadow_sprite: Sprite2D = $ShadowIcon/ShadowSprite
+@onready var shadow_label: Label = $ShadowIcon/ShadowLabel
+@onready var shadow_icon: Control = $ShadowIcon
 
 var selected_icon : DesktopIcon
 var dragged_icon : DesktopIcon
 var screen_size : Vector2
-var icon_slots = []
 
 signal double_clicked
 
 func _ready() -> void:
-	for row in rows:
-		icon_slots.append([])
-		for col in columns:
-			icon_slots[row].append(null)
-
 	input_manager.left_mouse_button_released.connect(_finish_drag)
 	screen_size = get_viewport_rect().size
 	for icon : Control in get_children():
