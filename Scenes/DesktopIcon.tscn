@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5l074er5jpcg"]
+[gd_scene load_steps=8 format=3 uid="uid://c5l074er5jpcg"]
 
 [ext_resource type="Script" path="res://Scenes/desktop_icon.gd" id="1_rlf6i"]
+[ext_resource type="Texture2D" uid="uid://bl5se111ushyf" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__00.png" id="2_8uq72"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_ewyxw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwuga"]
@@ -35,12 +36,13 @@ shadow_offset = Vector2(2, 2)
 size = Vector2(128, 160)
 
 [node name="DesktopIcon" type="Control"]
-custom_minimum_size = Vector2(128, 160)
 layout_mode = 3
-anchor_right = 0.111
-anchor_bottom = 0.247
-offset_right = 0.127991
-offset_bottom = -0.0559998
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = 80.0
+pivot_offset = Vector2(64, 80)
 script = ExtResource("1_rlf6i")
 
 [node name="DragBoundary" type="Control" parent="."]
@@ -50,18 +52,21 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 120.0
 offset_bottom = 152.0
+pivot_offset = Vector2(56, 72)
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 160.0
+pivot_offset = Vector2(64, 80)
 mouse_filter = 2
 theme = SubResource("Theme_fm167")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(64, 56)
 scale = Vector2(4, 4)
+texture = ExtResource("2_8uq72")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -70,16 +75,17 @@ offset_right = 128.0
 offset_bottom = 144.0
 theme = ExtResource("3_ewyxw")
 theme_override_font_sizes/font_size = 32
+text = "PLACEHOLDER placeholder"
 label_settings = SubResource("LabelSettings_sxei6")
 horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(64, 80)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(64, 80)
 shape = SubResource("RectangleShape2D_fl4lc")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
