@@ -1,9 +1,9 @@
 extends Control
 
-@onready var icons: IconManager = %Icons
+@onready var icon_manager: IconManager = %IconManager
 
 func _ready() -> void:
-	icons.double_clicked.connect(_on_double_click_icon)
+	icon_manager.double_clicked.connect(_on_double_click_icon)
 
 func _on_double_click_icon(icon : DesktopIcon):
 	open_file_entry(icon.desktop_resource.path)
