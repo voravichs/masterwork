@@ -1,0 +1,28 @@
+{
+	"name": "root",
+	"type": "folder",
+	"children": [
+		{
+			"name": "desktop",
+			"type": "folder",
+			"children": [
+				{
+					"name": "KAITO",
+					"type": "folder",
+					"children": [
+						{
+							"name": "README",
+							"type": "file",
+							"scene_path": ""
+						}
+					]
+				},
+				{
+					"name": "README",
+					"type": "file",
+					"scene_path": ""
+				},
+			]
+		},
+	]
+}

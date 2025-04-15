@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8fdaxeu1mgt"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_os1wn"]
+[ext_resource type="PackedScene" uid="uid://c5l074er5jpcg" path="res://Scenes/DesktopIcon.tscn" id="2_flvo0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_os1wn")
+
+[node name="DesktopIcon" parent="." instance=ExtResource("2_flvo0")]
+position = Vector2(249, 372)
+
+[connection signal="hover_on" from="DesktopIcon" to="." method="_on_desktop_icon_hover_on"]

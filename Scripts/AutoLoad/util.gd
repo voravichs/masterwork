@@ -17,6 +17,11 @@ enum ItemType {
 	PUZZLE
 }
 
+enum FileEntryType {
+	FOLDER,
+	FILE
+}
+
 const SYMBOL_CANVAS_DATA = {
 	PatternType.TETRAGRAM: {
 		"num_dots": 4,

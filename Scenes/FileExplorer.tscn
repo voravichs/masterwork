@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvsbqsj5wv1wy"]
+
+[ext_resource type="Texture2D" uid="uid://erklue36cvge" path="res://Assets/Sprites/folder.png" id="1_5mclb"]
+[ext_resource type="Script" path="res://Scenes/file_explorer.gd" id="1_muekg"]
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_sg10p"]
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="3_ihnvc"]
+[ext_resource type="Script" path="res://Scenes/file_tree.gd" id="3_tchvy"]
+[ext_resource type="Script" path="res://Scenes/breadcrumbs.gd" id="5_xq23w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_turwc"]
+
+[sub_resource type="Theme" id="Theme_eyu3w"]
+default_font = ExtResource("3_ihnvc")
+default_font_size = 16
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 2
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 1
+Label/styles/normal = SubResource("StyleBoxEmpty_turwc")
+
+[node name="FileExplorer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_muekg")
+
+[node name="MainWindow" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.5
+offset_top = -242.0
+offset_right = 344.5
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainWindow"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="HBoxContainer" parent="MainWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/VBoxContainer/TitleBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="TextureRect" type="TextureRect" parent="MainWindow/VBoxContainer/TitleBar/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_5mclb")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainWindow/VBoxContainer/TitleBar"]
+layout_mode = 2
+theme = ExtResource("2_sg10p")
+text = "FILES"
+
+[node name="Spacer" type="Control" parent="MainWindow/VBoxContainer/TitleBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainWindow/VBoxContainer/TitleBar"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MainWindow/VBoxContainer/TitleBar/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_sg10p")
+text = " x "
+icon_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MainWindow/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 150
+
+[node name="FileTree" type="Tree" parent="MainWindow/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+theme = SubResource("Theme_eyu3w")
+script = ExtResource("3_tchvy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainWindow/VBoxContainer/HSplitContainer"]
+layout_mode = 2
+
+[node name="BreadcrumbBar" type="HBoxContainer" parent="MainWindow/VBoxContainer/HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_sg10p")
+alignment = 1
+script = ExtResource("5_xq23w")
+
+[node name="Button" type="Button" parent="MainWindow/VBoxContainer/HSplitContainer/VBoxContainer/BreadcrumbBar"]
+layout_mode = 2
+text = "skibidi"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/VBoxContainer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainWindow/VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MainWindow/VBoxContainer/HSplitContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 6

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2ixnfwfvytav"]
+
+[ext_resource type="Script" path="res://Scenes/nezu.gd" id="1_0ts6k"]
+[ext_resource type="Texture2D" uid="uid://chi2arsk86d72" path="res://Assets/Sprites/nezu.png" id="2_iv7w3"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_0ts6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iv7w3")
+hframes = 10
+vframes = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -4,7 +4,6 @@ extends Node2D
 @export var item_resource : ItemResource
 
 @onready var icon: Sprite2D = $ItemInteractionController/Sprite2D
-@onready var item_interaction_controller: Node2D = $ItemInteractionController
 
 const SCENE_PATH = "res://Scenes/Environment/InventoryItem.tscn"
 
