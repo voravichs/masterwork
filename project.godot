@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="masterwork"
-run/main_scene="res://Scenes/MainScreen.tscn"
+run/main_scene="res://Scenes/Desktop/MainScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -28,6 +28,7 @@ InteractionManager="*res://Scripts/AutoLoad/InteractionManager.tscn"
 SymbolMatch="*res://Scripts/AutoLoad/symbol_match.gd"
 Inventory="*res://Scripts/AutoLoad/inventory.gd"
 FileSystem="*res://Scripts/AutoLoad/file_system.gd"
+GlobalDragHandler="*res://Scripts/AutoLoad/global_drag_handler.tscn"
 
 [debug]
 

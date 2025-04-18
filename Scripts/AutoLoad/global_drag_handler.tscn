@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwt2rqqphn5iu"]
+
+[ext_resource type="Script" path="res://Scenes/Desktop/global_drag_handler.gd" id="1_dlvyj"]
+
+[node name="GlobalDragHandler" type="Node2D"]
+script = ExtResource("1_dlvyj")

@@ -10,14 +10,14 @@ func _ready():
 func _build_entry(data: Dictionary, parent):
 	var entry : FileSystemEntry
 	if data.type == "folder":
-		entry = Folder.new(data.name, parent)
+		entry = Folder.new(data.name, data.resource, parent)
 		for child in data.children:
 			entry.add_folder_child(_build_entry(child, entry))
 	elif data.type == "file":
 		var scene = null
 		if data.has("scene_path"):
 			scene = load(data.scene_path)
-		entry = FileEntry.new(data.name, parent, scene)
+		entry = FileEntry.new(data.name, data.resource, parent, scene)
 	return entry
 
 func get_root():

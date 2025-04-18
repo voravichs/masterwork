@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://dlp8fw8237au"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
+[ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_brnow"]
+[ext_resource type="Texture2D" uid="uid://c57hamx644beq" path="res://Assets/Sprites/194622.jpg" id="2_d8tbw"]
+[ext_resource type="Script" path="res://Scenes/icon_manager.gd" id="3_f5a20"]
+[ext_resource type="PackedScene" uid="uid://c5l074er5jpcg" path="res://Scenes/Desktop/FileEntryIcon.tscn" id="4_rkxgx"]
+[ext_resource type="Texture2D" uid="uid://bl5se111ushyf" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__00.png" id="8_c5lfa"]
+[ext_resource type="Script" path="res://Scenes/input_manager.gd" id="8_sht5s"]
+[ext_resource type="Resource" uid="uid://cb32hn4cee6n5" path="res://Presets/kaito_folder.tres" id="9_uyra3"]
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="9_y554y"]
+[ext_resource type="Resource" uid="uid://t7gey36tsg42" path="res://Presets/readme.tres" id="10_o4wy4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjq21"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.24, 0.24, 0.24, 0.52549)
+border_color = Color(0.26, 0.26, 0.26, 1)
+border_blend = true
+corner_detail = 5
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_eotkw"]
+Panel/styles/panel = SubResource("StyleBoxFlat_sjq21")
+
+[sub_resource type="LabelSettings" id="LabelSettings_00vj5"]
+line_spacing = -8.0
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.980392)
+shadow_offset = Vector2(2, 2)
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_brnow")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8tbw")
+expand_mode = 3
+
+[node name="Taskbar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Taskbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eotkw")
+
+[node name="Icons" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("3_f5a20")
+
+[node name="ShadowIcon" type="Control" parent="Icons"]
+modulate = Color(1, 1, 1, 0.294118)
+anchors_preset = 0
+offset_left = -126.0
+offset_top = 96.0
+offset_right = -29.0
+offset_bottom = 176.0
+
+[node name="ShadowSprite" type="Sprite2D" parent="Icons/ShadowIcon"]
+scale = Vector2(4, 4)
+texture = ExtResource("8_c5lfa")
+
+[node name="ShadowLabel" type="Label" parent="Icons/ShadowIcon"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = 36.0
+offset_right = 35.0
+offset_bottom = 84.0
+theme = ExtResource("9_y554y")
+theme_override_font_sizes/font_size = 32
+text = "PLACEHOLDER placeholder"
+label_settings = SubResource("LabelSettings_00vj5")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Cursor" parent="." instance=ExtResource("1_7hxjc")]
+
+[node name="InputManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_sht5s")
+
+[node name="FileEntryIcon" parent="." instance=ExtResource("4_rkxgx")]
+offset_left = 117.0
+offset_top = 100.0
+offset_right = 117.0
+offset_bottom = 100.0
+desktop_resource = ExtResource("9_uyra3")
+
+[node name="FileEntryIcon2" parent="." instance=ExtResource("4_rkxgx")]
+offset_left = 285.0
+offset_top = 102.0
+offset_right = 285.0
+offset_bottom = 102.0
+desktop_resource = ExtResource("10_o4wy4")

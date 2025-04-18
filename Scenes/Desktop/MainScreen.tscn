@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlp8fw8237au"]
+
+[ext_resource type="PackedScene" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
+[ext_resource type="Script" path="res://Scenes/Desktop/main_screen.gd" id="1_brnow"]
+[ext_resource type="Texture2D" uid="uid://c57hamx644beq" path="res://Assets/Sprites/194622.jpg" id="2_d8tbw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjq21"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.24, 0.24, 0.24, 0.52549)
+border_color = Color(0.26, 0.26, 0.26, 1)
+border_blend = true
+corner_detail = 5
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_eotkw"]
+Panel/styles/panel = SubResource("StyleBoxFlat_sjq21")
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_brnow")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="BG" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8tbw")
+expand_mode = 3
+
+[node name="Taskbar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Taskbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eotkw")
+
+[node name="Cursor" parent="." instance=ExtResource("1_7hxjc")]
+z_index = 20
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

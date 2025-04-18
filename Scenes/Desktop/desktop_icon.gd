@@ -1,6 +1,6 @@
 @tool
 extends Control
-class_name DesktopIcon
+class_name FileEntryIcon
 
 @export var desktop_resource : DesktopResource
 
@@ -10,6 +10,8 @@ class_name DesktopIcon
 @onready var drag_boundary: Control = $DragBoundary
 
 const SCENE_PATH = "res://Scenes/Environment/InventoryItem.tscn"
+
+var coords :Vector2i
 
 signal hover_on
 signal hover_off

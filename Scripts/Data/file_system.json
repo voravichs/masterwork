@@ -1,18 +1,22 @@
 {
 	"name": "root",
 	"type": "folder",
+	"resource": "",
 	"children": [
 		{
 			"name": "desktop",
 			"type": "folder",
+			"resource": "",
 			"children": [
 				{
 					"name": "KAITO",
 					"type": "folder",
+					"resource": "res://Presets/kaito_folder.tres",
 					"children": [
 						{
 							"name": "README",
 							"type": "file",
+							"resource": "res://Presets/readme.tres",
 							"scene_path": ""
 						}
 					]
@@ -20,6 +24,7 @@
 				{
 					"name": "README",
 					"type": "file",
+					"resource": "res://Presets/readme.tres",
 					"scene_path": ""
 				},
 			]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://dlp8fw8237au"]
 
-[ext_resource type="PackedScene" uid="uid://2ixnfwfvytav" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
+[ext_resource type="PackedScene" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
 [ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_brnow"]
 [ext_resource type="Texture2D" uid="uid://c57hamx644beq" path="res://Assets/Sprites/194622.jpg" id="2_d8tbw"]
 [ext_resource type="Script" path="res://Scenes/icon_manager.gd" id="3_f5a20"]
 [ext_resource type="Script" path="res://Scripts/Resources/desktop_icon_resource.gd" id="4_masmu"]
-[ext_resource type="PackedScene" uid="uid://c5l074er5jpcg" path="res://Scenes/DesktopIcon.tscn" id="4_rkxgx"]
+[ext_resource type="PackedScene" uid="uid://c5l074er5jpcg" path="res://Scenes/Desktop/FileEntryIcon.tscn" id="4_rkxgx"]
 [ext_resource type="Texture2D" uid="uid://erklue36cvge" path="res://Assets/Sprites/folder.png" id="6_s346k"]
 [ext_resource type="Texture2D" uid="uid://bl5se111ushyf" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__00.png" id="8_c5lfa"]
 [ext_resource type="Script" path="res://Scenes/input_manager.gd" id="8_sht5s"]
@@ -129,14 +129,14 @@ label_settings = SubResource("LabelSettings_00vj5")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="DesktopIcon" parent="Icons" instance=ExtResource("4_rkxgx")]
+[node name="FileEntryIcon" parent="Icons" instance=ExtResource("4_rkxgx")]
 offset_left = 99.0
 offset_top = 103.0
 offset_right = 99.0
 offset_bottom = 103.0
 desktop_resource = SubResource("Resource_gf83q")
 
-[node name="DesktopIcon2" parent="Icons" instance=ExtResource("4_rkxgx")]
+[node name="FileEntryIcon2" parent="Icons" instance=ExtResource("4_rkxgx")]
 offset_left = 252.0
 offset_top = 101.0
 offset_right = 252.0
