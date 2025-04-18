@@ -28,7 +28,7 @@ InteractionManager="*res://Scripts/AutoLoad/InteractionManager.tscn"
 SymbolMatch="*res://Scripts/AutoLoad/symbol_match.gd"
 Inventory="*res://Scripts/AutoLoad/inventory.gd"
 FileSystem="*res://Scripts/AutoLoad/file_system.gd"
-GlobalDragHandler="*res://Scripts/AutoLoad/global_drag_handler.tscn"
+GlobalDragHandler="*res://Scripts/AutoLoad/GlobalDragHandler.tscn"
 
 [debug]
 

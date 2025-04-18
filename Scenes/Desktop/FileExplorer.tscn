@@ -29,6 +29,7 @@ Label/constants/shadow_outline_size = 1
 Label/styles/normal = SubResource("StyleBoxEmpty_turwc")
 
 [node name="FileExplorer" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,3 +145,4 @@ mouse_filter = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="MainWindow/MarginContainer/VBoxContainer/TitleBar/MarginContainer2/TextureButton" to="." method="_on_close"]

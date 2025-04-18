@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwt2rqqphn5iu"]
+
+[ext_resource type="Script" path="res://Scenes/Desktop/global_drag_handler.gd" id="1_dlvyj"]
+[ext_resource type="Texture2D" uid="uid://bl5se111ushyf" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__00.png" id="2_48q3y"]
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_x5ret"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1c63j"]
+line_spacing = -8.0
+font_size = 32
+shadow_color = Color(0, 0, 0, 0.980392)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvgbu"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.6408, 0.769553, 0.89, 0.588235)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6408, 0.769553, 0.89, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 5
+shadow_color = Color(0.82, 0.82, 0.82, 0.196078)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_l7q8r"]
+Panel/styles/panel = SubResource("StyleBoxFlat_fvgbu")
+
+[node name="GlobalDragHandler" type="Node2D"]
+script = ExtResource("1_dlvyj")
+
+[node name="ShadowIcon" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 97.0
+offset_bottom = 80.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ShadowLabel" type="Label" parent="ShadowIcon"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = 36.0
+offset_right = 35.0
+offset_bottom = 84.0
+theme = ExtResource("3_x5ret")
+theme_override_font_sizes/font_size = 32
+text = "PLACEHOLDER placeholder"
+label_settings = SubResource("LabelSettings_1c63j")
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ShadowSprite" type="Sprite2D" parent="ShadowIcon"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_48q3y")
+
+[node name="GuidePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.588235)
+offset_left = -471.0
+offset_top = 261.0
+offset_right = -343.0
+offset_bottom = 421.0
+mouse_filter = 2
+theme = SubResource("Theme_l7q8r")

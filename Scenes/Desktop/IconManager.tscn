@@ -1,37 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://diru8exwi4uu4"]
+[gd_scene load_steps=3 format=3 uid="uid://diru8exwi4uu4"]
 
 [ext_resource type="Script" path="res://Scenes/Desktop/icon_manager.gd" id="1_74w26"]
-[ext_resource type="Texture2D" uid="uid://bl5se111ushyf" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__00.png" id="2_h3mnn"]
-[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_e34cr"]
 [ext_resource type="Script" path="res://Scenes/Desktop/input_manager.gd" id="4_85eoq"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_00vj5"]
-line_spacing = -8.0
-font_size = 32
-shadow_color = Color(0, 0, 0, 0.980392)
-shadow_offset = Vector2(2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fvgbu"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.6408, 0.769553, 0.89, 0.588235)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.6408, 0.769553, 0.89, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-corner_detail = 5
-shadow_color = Color(0.82, 0.82, 0.82, 0.196078)
-anti_aliasing = false
-
-[sub_resource type="Theme" id="Theme_tlpfs"]
-Panel/styles/panel = SubResource("StyleBoxFlat_fvgbu")
 
 [node name="IconManager" type="Control"]
 layout_mode = 3
@@ -43,44 +13,8 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_74w26")
 
-[node name="ShadowIcon" type="Control" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.294118)
-anchors_preset = 0
-offset_left = -126.0
-offset_top = 96.0
-offset_right = -29.0
-offset_bottom = 176.0
-
-[node name="ShadowSprite" type="Sprite2D" parent="ShadowIcon"]
-scale = Vector2(4, 4)
-texture = ExtResource("2_h3mnn")
-
-[node name="ShadowLabel" type="Label" parent="ShadowIcon"]
-layout_mode = 0
-offset_left = -34.0
-offset_top = 36.0
-offset_right = 35.0
-offset_bottom = 84.0
-theme = ExtResource("3_e34cr")
-theme_override_font_sizes/font_size = 32
-text = "PLACEHOLDER placeholder"
-label_settings = SubResource("LabelSettings_00vj5")
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="Local" type="Node2D" parent="."]
 unique_name_in_owner = true
-
-[node name="GuidePanel" type="Panel" parent="."]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 1, 0.588235)
-layout_mode = 1
-offset_right = 128.0
-offset_bottom = 160.0
-mouse_filter = 2
-theme = SubResource("Theme_tlpfs")
 
 [node name="InputManager" type="Node2D" parent="."]
 unique_name_in_owner = true

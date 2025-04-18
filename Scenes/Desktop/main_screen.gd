@@ -11,6 +11,7 @@ func _ready() -> void:
 	var icons : IconManager = ICON_MANAGER.instantiate()
 	icon_manager_ref = icons
 	icons.path = "desktop"
+	icons.parent_z = z_index
 	icons.double_clicked.connect(_on_double_click_icon)
 	add_child(icons)
 
@@ -25,11 +26,9 @@ func open_file_entry(path: String):
 	if file_found.is_folder():
 		var file_explorer = FILE_EXP.instantiate()
 		file_explorer.path = path
+		file_explorer.close.connect(_on_close_file_ex)
 		add_child(file_explorer)
-		icon_manager_ref.drag_enabled = false
 
-func _on_mouse_entered() -> void:
-	print("enter desktop")
-
-func _on_mouse_exited() -> void:
-	print("exit desktop")
+func _on_close_file_ex(fex: FileExplorer):
+	GlobalDragHandler.unregister_drop_target(fex.icon_manager_ref)
+	remove_child(fex)
