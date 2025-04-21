@@ -3,8 +3,8 @@ class_name FileEntry
 
 var scene_reference: PackedScene = null
 
-func _init(_name: String, _resource_path: String, _parent=null, _scene:PackedScene=null):
-	super(_name, _resource_path, _parent)
+func _init(_name: String, _coords: Vector2, _resource_path: String, _parent=null, _scene:PackedScene=null):
+	super(_name, _coords, _resource_path, _parent)
 	scene_reference = _scene
 
 func has_scene() -> bool:

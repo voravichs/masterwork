@@ -1,8 +1,10 @@
 TODO
-updating file system after dragging
+making fex scroll
+adding windows to taskbar
+text files
 
 Translation Scene
-text files
+
 
 Taskbar Icons
 Start/settings menu

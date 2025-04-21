@@ -52,7 +52,6 @@ func register_drop_target(target: Control):
 	drop_targets.append(target)
 
 func unregister_drop_target(target: Control):
-	print(drop_targets.has(target))
 	drop_targets.erase(target)
 
 func start_drag(icon : FileEntryIcon, from: IconManager):
@@ -71,10 +70,6 @@ func finish_drag():
 			if to_manager.can_accept_drop(snap_cell, dragged_icon):
 				from_manager.remove_icon(dragged_icon)
 				to_manager.receive_drop(dragged_icon, snap_cell)
-				#print("from")
-				#print(from_manager)
-				#print("to")
-				#print(to_manager)
 	dragged_icon = null
 	guide_panel.visible = false
 	shadow_icon.visible = false

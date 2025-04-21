@@ -10,14 +10,14 @@ func _ready():
 func _build_entry(data: Dictionary, parent):
 	var entry : FileSystemEntry
 	if data.type == "folder":
-		entry = Folder.new(data.name, data.resource, parent)
+		entry = Folder.new(data.name, Vector2(data.y, data.x), data.resource, parent)
 		for child in data.children:
 			entry.add_folder_child(_build_entry(child, entry))
 	elif data.type == "file":
 		var scene = null
 		if data.has("scene_path"):
 			scene = load(data.scene_path)
-		entry = FileEntry.new(data.name, data.resource, parent, scene)
+		entry = FileEntry.new(data.name, Vector2(data.y, data.x), data.resource, parent, scene)
 	return entry
 
 func get_root():
@@ -37,3 +37,31 @@ func find_by_path(path: String) -> FileSystemEntry:
 		if entry == null:
 			return null
 	return entry
+
+#func remove_entry(path: String):
+	#var parts = path.split("/")
+	#var entry : FileSystemEntry = root
+	#for p in parts:
+		#var entry_list = entry.list_entries()
+		#for e : FileSystemEntry in entry_list:
+			#if e.entry_name == p:
+				#entry = e
+				#break
+			#else:
+				#entry = null
+	#var parent : Folder = entry.parent
+	#parent.remove_folder_child(entry)
+
+#func add_entry(path: String):
+	#var parts = path.split("/")
+	#var entry : FileSystemEntry = root
+	#for p in parts:
+		#var entry_list = entry.list_entries()
+		#for e : FileSystemEntry in entry_list:
+			#if e.entry_name == p:
+				#entry = e
+				#break
+			#else:
+				#entry = null
+	#var parent : Folder = entry.parent
+	#parent.add_folder_child(entry)

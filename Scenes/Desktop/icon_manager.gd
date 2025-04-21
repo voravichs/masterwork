@@ -37,6 +37,9 @@ func _init_grid():
 		for col in grid_cols:
 			row_arr.append(null)
 		slots.append(row_arr)
+	_init_files()
+
+func _init_files():
 	var folder : Folder = FileSystem.find_by_path(path)
 	if !folder:
 		print("ERR: File not defined!")
@@ -46,9 +49,8 @@ func _init_grid():
 		var resource_path : String = child.resource_path
 		var resource = load(resource_path)
 		icon.desktop_resource = resource
-		var pos = next_open_pos()
-		if pos != null:
-			add_icon(icon, pos)
+		icon.file_system_entry = child
+		add_icon(icon, child.coords)
 	for icon : Node in get_children():
 		if icon is FileEntryIcon:
 			icon.hover_on.connect(_hover_on_icon)
@@ -68,18 +70,19 @@ func global_to_cell(global_mouse_pos: Vector2) -> Vector2i:
 	)
 	return cell
 
-func next_open_pos():
-	for row in grid_rows:
-		for col in grid_cols:
-			if !slots[col][row]:
-				return Vector2(col, row)
-	return null
-
 func add_icon(icon: FileEntryIcon, cell: Vector2i):
 	slots[cell.y][cell.x] = icon
 	icon.coords = cell
 	icon.position = grid_cell_to_position(cell)
 	add_child(icon)
+
+func remove_icon(icon: FileEntryIcon) -> void:
+	if has_node(icon.get_path()):
+		remove_child(icon)
+	# Remove from slots array
+	slots[icon.coords.y][icon.coords.x] = null
+	# Remove from file tree
+	icon.file_system_entry.parent.remove_folder_child(icon.file_system_entry)
 
 func can_accept_drop(cell: Vector2i, icon: FileEntryIcon) -> bool:
 	# Check bounds
@@ -87,18 +90,20 @@ func can_accept_drop(cell: Vector2i, icon: FileEntryIcon) -> bool:
 		return false
 	if slots[cell.y][cell.x] != null:
 		return false
+	if icon.file_system_entry.path == path:
+		return false
 	return true
 
 func receive_drop(icon: FileEntryIcon, cell: Vector2i) -> void:
 	if icon.get_parent():
 		icon.get_parent().remove_child(icon)
 	add_icon(icon, cell)
-
-func remove_icon(icon: FileEntryIcon) -> void:
-	if has_node(icon.get_path()):
-		remove_child(icon)
-	# Remove from slots array
-	slots[icon.coords.y][icon.coords.x] = null
+	# Add to file tree
+	var parent : Folder = FileSystem.find_by_path(path)
+	parent.add_folder_child(icon.file_system_entry)
+	# update path and coords
+	icon.file_system_entry.path = "%s/%s" % [path, icon.file_system_entry.entry_name]
+	icon.file_system_entry.coords = cell
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_action_pressed("click"):

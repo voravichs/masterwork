@@ -12,6 +12,7 @@ class_name FileEntryIcon
 const SCENE_PATH = "res://Scenes/Environment/InventoryItem.tscn"
 
 var coords :Vector2i
+var file_system_entry: FileSystemEntry
 
 signal hover_on
 signal hover_off
