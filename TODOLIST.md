@@ -1,11 +1,7 @@
 TODO
-making fex scroll
-adding windows to taskbar
-text files
-
 Translation Scene
 
-
 Taskbar Icons
+adding windows to taskbar
 Start/settings menu
 Profile/character hud

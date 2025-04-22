@@ -1,0 +1,229 @@
+[gd_scene load_steps=18 format=3 uid="uid://c7g6dag14tgys"]
+
+[ext_resource type="Script" path="res://Scenes/text_file_reader.gd" id="1_3gwa5"]
+[ext_resource type="Texture2D" uid="uid://dgxk25tcoxnvk" path="res://Assets/Sprites/window.png" id="1_o8nr0"]
+[ext_resource type="Texture2D" uid="uid://cgmd2vib15j5v" path="res://Assets/Sprites/Environment/scroll.png" id="2_7nkm4"]
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_vvseu"]
+[ext_resource type="Texture2D" uid="uid://dggqkp4meaihj" path="res://Assets/Sprites/UI/Buttons/xbutton_normal.png" id="4_hpasa"]
+[ext_resource type="Texture2D" uid="uid://b10ugupa7uw7k" path="res://Assets/Sprites/UI/Buttons/xbutton_click.png" id="5_icbg1"]
+[ext_resource type="Texture2D" uid="uid://buu21chkc3xjq" path="res://Assets/Sprites/UI/Buttons/xbutton_hover.png" id="6_tud0e"]
+[ext_resource type="FontFile" uid="uid://binurj1milos7" path="res://Assets/Fonts/LanaPixel.ttf" id="7_p3x6p"]
+
+[sub_resource type="Theme" id="Theme_evt7u"]
+
+[sub_resource type="Image" id="Image_htc2v"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 179, 179, 179, 20, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 20, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 188, 188, 188, 19, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 188, 188, 188, 19, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 8,
+"mipmaps": false,
+"width": 8
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_es8rm"]
+image = SubResource("Image_htc2v")
+
+[sub_resource type="Image" id="Image_bko2d"]
+data = {
+"data": PackedByteArray(181, 181, 181, 48, 179, 179, 179, 50, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 179, 179, 179, 50, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 204, 204, 204, 5, 178, 178, 178, 53, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 204, 204, 204, 5, 182, 182, 182, 52, 180, 180, 180, 64, 180, 180, 180, 51, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 179, 179, 179, 50, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 182, 182, 182, 49, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 181, 181, 181, 41, 182, 182, 182, 49, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64),
+"format": "RGBA8",
+"height": 8,
+"mipmaps": false,
+"width": 8
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_d1s1q"]
+image = SubResource("Image_bko2d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqoau"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqdkh"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_color = Color(0, 0, 0, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5wvn"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_color = Color(0, 0, 0, 0.3)
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Theme" id="Theme_mrotd"]
+TextEdit/colors/background_color = Color(0, 0, 0, 0)
+TextEdit/colors/caret_background_color = Color(0, 0, 0, 1)
+TextEdit/colors/caret_color = Color(0.875, 0.875, 0.875, 1)
+TextEdit/colors/current_line_color = Color(0.25, 0.25, 0.26, 0.8)
+TextEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+TextEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+TextEdit/colors/font_readonly_color = Color(0.875, 0.875, 0.875, 0.5)
+TextEdit/colors/font_selected_color = Color(0, 0, 0, 0)
+TextEdit/colors/search_result_border_color = Color(0.3, 0.3, 0.3, 0.4)
+TextEdit/colors/search_result_color = Color(0.3, 0.3, 0.3, 1)
+TextEdit/colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+TextEdit/colors/word_highlighted_color = Color(0.5, 0.5, 0.5, 0.25)
+TextEdit/constants/caret_width = 1
+TextEdit/constants/line_spacing = 4
+TextEdit/constants/outline_size = 0
+TextEdit/font_sizes/font_size = 24
+TextEdit/fonts/font = ExtResource("7_p3x6p")
+TextEdit/icons/space = SubResource("ImageTexture_es8rm")
+TextEdit/icons/tab = SubResource("ImageTexture_d1s1q")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_bqoau")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_jqdkh")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_l5wvn")
+
+[node name="TextFileReader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3gwa5")
+text_file_path = "res://Scripts/Data/TextFiles/example.txt"
+
+[node name="MainWindow" type="NinePatchRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = SubResource("Theme_evt7u")
+texture = ExtResource("1_o8nr0")
+patch_margin_left = 32
+patch_margin_top = 64
+patch_margin_right = 32
+patch_margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainWindow/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleBar" type="HBoxContainer" parent="MainWindow/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/MarginContainer/VBoxContainer/TitleBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="MainWindow/MarginContainer/VBoxContainer/TitleBar/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_7nkm4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainWindow/MarginContainer/VBoxContainer/TitleBar"]
+layout_mode = 2
+theme = ExtResource("3_vvseu")
+text = "Text Reader"
+
+[node name="Spacer" type="Control" parent="MainWindow/MarginContainer/VBoxContainer/TitleBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainWindow/MarginContainer/VBoxContainer/TitleBar"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="MainWindow/MarginContainer/VBoxContainer/TitleBar/MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_hpasa")
+texture_pressed = ExtResource("5_icbg1")
+texture_hover = ExtResource("6_tud0e")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 28
+
+[node name="TextBox" type="TextEdit" parent="MainWindow/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_mrotd")
+wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 20.0
+minimap_draw = true
+caret_blink = true
+
+[node name="ResizeBR" type="Control" parent="MainWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 12
+
+[node name="ResizeBL" type="Control" parent="MainWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+offset_right = 32.0
+grow_vertical = 0
+mouse_filter = 1
+mouse_default_cursor_shape = 11
+
+[connection signal="gui_input" from="MainWindow/MarginContainer/VBoxContainer/TitleBar" to="." method="_on_title_bar_gui_input"]
+[connection signal="mouse_entered" from="MainWindow/MarginContainer/VBoxContainer/TitleBar" to="." method="_on_title_bar_mouse_entered"]
+[connection signal="mouse_exited" from="MainWindow/MarginContainer/VBoxContainer/TitleBar" to="." method="_on_title_bar_mouse_exited"]
+[connection signal="gui_input" from="MainWindow/ResizeBR" to="." method="_on_resize_br_gui_input"]
+[connection signal="gui_input" from="MainWindow/ResizeBL" to="." method="_on_resize_bl_gui_input"]

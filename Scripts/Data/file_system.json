@@ -30,6 +30,63 @@
 					
 					]
 				},
+				{
+					"name": "debug",
+					"type": "folder",
+					"x": 0,
+					"y": 1,
+					"resource": "res://Presets/kaito_folder.tres",
+					"children": [
+						{
+							"name": "README",
+							"type": "file",
+							"x": 0,
+							"y": 0,
+							"resource": "res://Presets/readme.tres",
+							"scene_path": ""
+						},
+						{
+							"name": "README",
+							"type": "file",
+							"x": 0,
+							"y": 1,
+							"resource": "res://Presets/readme2.tres",
+							"scene_path": ""
+						},
+						{
+							"name": "README",
+							"type": "file",
+							"x": 0,
+							"y": 2,
+							"resource": "res://Presets/readme3.tres",
+							"scene_path": ""
+						},
+						{
+							"name": "README",
+							"type": "file",
+							"x": 0,
+							"y": 3,
+							"resource": "res://Presets/readme4.tres",
+							"scene_path": ""
+						},
+						{
+							"name": "README",
+							"type": "file",
+							"x": 1,
+							"y": 0,
+							"resource": "res://Presets/readme5.tres",
+							"scene_path": ""
+						},
+						{
+							"name": "README",
+							"type": "file",
+							"x": 0,
+							"y": 1,
+							"resource": "res://Presets/readme6.tres",
+							"scene_path": ""
+						},
+					]
+				},
 			]
 		},
 	]

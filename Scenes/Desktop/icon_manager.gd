@@ -29,15 +29,22 @@ func _ready() -> void:
 	GlobalDragHandler.register_drop_target(self)
 
 func _init_grid():
-	grid_cols = (size.x - MARGIN * 2) / CELL_SIZE.x
-	grid_rows = (size.y - MARGIN * 2) / CELL_SIZE.y
+	var file_count : float = FileSystem.find_by_path(path).list_entries().size()
+	print(size.x)
+	grid_cols = (size.x ) / CELL_SIZE.x
+	grid_rows = ceil(file_count / grid_cols)
+	print(Vector2(grid_cols,grid_rows))
 	slots.clear()
+	for child in get_children():
+		if child is FileEntryIcon:
+			child.queue_free()
 	for row in grid_rows:
 		var row_arr = []
 		for col in grid_cols:
 			row_arr.append(null)
 		slots.append(row_arr)
 	_init_files()
+	self.custom_minimum_size.y = grid_rows * CELL_SIZE.y
 
 func _init_files():
 	var folder : Folder = FileSystem.find_by_path(path)
@@ -50,11 +57,11 @@ func _init_files():
 		var resource = load(resource_path)
 		icon.desktop_resource = resource
 		icon.file_system_entry = child
-		add_icon(icon, child.coords)
-	for icon : Node in get_children():
-		if icon is FileEntryIcon:
-			icon.hover_on.connect(_hover_on_icon)
-			icon.hover_off.connect(_hover_off_icon)
+		icon.hover_on.connect(_hover_on_icon)
+		icon.hover_off.connect(_hover_off_icon)
+		var open_slot : Vector2i = get_next_open_slot()
+		if open_slot != Vector2i(-1,-1):
+			add_icon(icon, open_slot)
 
 func grid_cell_to_position(grid_pos: Vector2i) -> Vector2:
 	return Vector2(
@@ -69,6 +76,17 @@ func global_to_cell(global_mouse_pos: Vector2) -> Vector2i:
 		floor((local.y) / CELL_SIZE.y)
 	)
 	return cell
+
+func get_next_open_slot() -> Vector2i:
+	var rows = slots.size()
+	if rows == 0:
+		return Vector2i(-1,-1)
+	var cols = slots[0].size()
+	for y in range(rows):
+		for x in range(cols):
+			if slots[y][x] == null:
+				return Vector2i(x, y)
+	return Vector2i(-1,-1)
 
 func add_icon(icon: FileEntryIcon, cell: Vector2i):
 	slots[cell.y][cell.x] = icon

@@ -1,14 +1,15 @@
 extends Control
-class_name FileExplorer
+class_name TextFileReader
 
-@onready var breadcrumb_bar: BreadcrumbBar = %BreadcrumbBar
+@export var text_file_path : String
+@export var read_only : bool
+
 @onready var title_bar: HBoxContainer = %TitleBar
 @onready var main_window: NinePatchRect = $MainWindow
 @onready var resize_br: Control = %ResizeBR
 @onready var resize_bl: Control = %ResizeBL
-@onready var icon_manager: IconManager = %IconManager
+@onready var text_box: TextEdit = %TextBox
 
-const ICON_MANAGER = preload("res://Scenes/Desktop/IconManager.tscn")
 const MIN_SIZE = Vector2(300, 300)
 
 var path : String
@@ -21,18 +22,12 @@ signal close
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Folder path for breadcrumbs
-	var debug_folder_path = "desktop/debug"
-	if !path:
-		path = debug_folder_path
-	breadcrumb_bar.set_breadcrumbs(path)
-	# Setup Icon Manager
-	icon_manager.path = path
-	icon_manager.parent_z = z_index
-	icon_manager.double_clicked.connect(_on_double_click_icon)
-
-func _on_double_click_icon() -> void:
-	print("poggies")
+	if FileAccess.file_exists(text_file_path):
+		var text = FileAccess.get_file_as_string(text_file_path)
+		text_box.text = text
+	else:
+		push_error("File not found: %s" % text_file_path)
+	text_box.editable = !read_only
 
 func _on_close() -> void:
 	close.emit(self)
