@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://50de8wgi414b"]
 
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="1_sd2v3"]
-[ext_resource type="Script" path="res://Scripts/UI/choice_button.gd" id="2_4fgc2"]
+[ext_resource type="Script" uid="uid://dd88v07ks20fa" path="res://Scripts/UI/choice_button.gd" id="2_4fgc2"]
 
 [node name="ChoiceButton" type="Button"]
 custom_minimum_size = Vector2(400, 50)

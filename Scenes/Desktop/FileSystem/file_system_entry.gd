@@ -7,12 +7,11 @@ var path: String
 var resource_path : String
 var coords: Vector2
 
-func _init(_name: String, _coords: Vector2, _resource_path: String, _parent=null):
+func _init(_name: String, _resource_path: String, _parent=null):
 	entry_name = _name
 	parent = _parent
 	path = _compute_path()
 	resource_path = _resource_path
-	coords = _coords
 
 func _compute_path() -> String:
 	if parent == null:

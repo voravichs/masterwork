@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://c7g6dag14tgys"]
 
-[ext_resource type="Script" path="res://Scenes/text_file_reader.gd" id="1_3gwa5"]
+[ext_resource type="Script" uid="uid://cpo3ef3wlonmt" path="res://Scenes/text_file_reader.gd" id="1_3gwa5"]
 [ext_resource type="Texture2D" uid="uid://dgxk25tcoxnvk" path="res://Assets/Sprites/window.png" id="1_o8nr0"]
 [ext_resource type="Texture2D" uid="uid://cgmd2vib15j5v" path="res://Assets/Sprites/Environment/scroll.png" id="2_7nkm4"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_vvseu"]
@@ -11,7 +11,7 @@
 
 [sub_resource type="Theme" id="Theme_evt7u"]
 
-[sub_resource type="Image" id="Image_htc2v"]
+[sub_resource type="Image" id="Image_2jpy3"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 179, 179, 179, 20, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 179, 179, 179, 20, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 188, 188, 188, 19, 180, 180, 180, 64, 180, 180, 180, 64, 188, 188, 188, 19, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 188, 188, 188, 19, 188, 188, 188, 19, 255, 255, 255, 1, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -21,9 +21,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_es8rm"]
-image = SubResource("Image_htc2v")
+image = SubResource("Image_2jpy3")
 
-[sub_resource type="Image" id="Image_bko2d"]
+[sub_resource type="Image" id="Image_k05bx"]
 data = {
 "data": PackedByteArray(181, 181, 181, 48, 179, 179, 179, 50, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 179, 179, 179, 50, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 204, 204, 204, 5, 178, 178, 178, 53, 180, 180, 180, 64, 180, 180, 180, 54, 213, 213, 213, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 204, 204, 204, 5, 182, 182, 182, 52, 180, 180, 180, 64, 180, 180, 180, 51, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 255, 255, 255, 0, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 179, 179, 179, 50, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 213, 213, 213, 6, 180, 180, 180, 54, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 182, 182, 182, 49, 180, 180, 180, 64, 183, 183, 183, 53, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64, 181, 181, 181, 41, 182, 182, 182, 49, 170, 170, 170, 6, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 180, 180, 180, 64, 180, 180, 180, 64),
 "format": "RGBA8",
@@ -33,7 +33,7 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_d1s1q"]
-image = SubResource("Image_bko2d")
+image = SubResource("Image_k05bx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqoau"]
 content_margin_left = 16.0
@@ -225,5 +225,6 @@ mouse_default_cursor_shape = 11
 [connection signal="gui_input" from="MainWindow/MarginContainer/VBoxContainer/TitleBar" to="." method="_on_title_bar_gui_input"]
 [connection signal="mouse_entered" from="MainWindow/MarginContainer/VBoxContainer/TitleBar" to="." method="_on_title_bar_mouse_entered"]
 [connection signal="mouse_exited" from="MainWindow/MarginContainer/VBoxContainer/TitleBar" to="." method="_on_title_bar_mouse_exited"]
+[connection signal="pressed" from="MainWindow/MarginContainer/VBoxContainer/TitleBar/MarginContainer2/TextureButton" to="." method="_on_close"]
 [connection signal="gui_input" from="MainWindow/ResizeBR" to="." method="_on_resize_br_gui_input"]
 [connection signal="gui_input" from="MainWindow/ResizeBL" to="." method="_on_resize_bl_gui_input"]

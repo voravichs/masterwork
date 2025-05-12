@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwt2rqqphn5iu"]
 
-[ext_resource type="Script" path="res://Scenes/Desktop/global_drag_handler.gd" id="1_dlvyj"]
+[ext_resource type="Script" uid="uid://c4wvrgiws1brj" path="res://Scenes/Desktop/global_drag_handler.gd" id="1_dlvyj"]
 [ext_resource type="Texture2D" uid="uid://bl5se111ushyf" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__00.png" id="2_48q3y"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_x5ret"]
 

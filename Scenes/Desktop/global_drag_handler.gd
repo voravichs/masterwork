@@ -21,15 +21,14 @@ func _process(delta):
 			if hovered_target.can_accept_drop(snap_cell, dragged_icon):
 				guide_panel.visible = true
 				guide_panel.position = hovered_target.grid_cell_to_position(snap_cell) \
-				+ hovered_target.local.global_position \
-				- Vector2(hovered_target.ICON_SIZE.x / 2, hovered_target.ICON_SIZE.y / 3)
+					+ hovered_target.local.global_position \
+					- Vector2(hovered_target.ICON_SIZE.x / 2, hovered_target.ICON_SIZE.y / 3)
 				if guide_panel.z_index < hovered_target.parent_z:
 					guide_panel.z_index = hovered_target.parent_z + 1
 				else:
 					guide_panel.z_index = 0
 				shadow_icon.visible = true
 				shadow_icon.position = global_mouse
-				
 			else:
 				guide_panel.visible = false
 				shadow_icon.visible = false

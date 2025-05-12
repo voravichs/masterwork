@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7mvlc18j34fa"]
 
-[ext_resource type="Script" path="res://Scripts/AutoLoad/interaction_manager.gd" id="1_2jhle"]
+[ext_resource type="Script" uid="uid://bmoxo5c4bwbi5" path="res://Scripts/AutoLoad/interaction_manager.gd" id="1_2jhle"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_ocnsv"]
 
 [node name="InteractionManager" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://7c6jjktcsf32"]
 
-[ext_resource type="Script" path="res://Scripts/Symbols/symbol_canvas.gd" id="1_c2k0d"]
+[ext_resource type="Script" uid="uid://bmwigm5rf1be" path="res://Scripts/Symbols/symbol_canvas.gd" id="1_c2k0d"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="2_w716a"]
 [ext_resource type="Texture2D" uid="uid://8qmjkrsn77t1" path="res://Assets/Sprites/mw_letters_FULL.png" id="3_1cheu"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="4_lp3rf"]

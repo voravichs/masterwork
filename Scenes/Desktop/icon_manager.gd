@@ -1,7 +1,7 @@
 extends Control
 class_name IconManager
 
-const PADDING = 16
+const PADDING = 24
 const MARGIN = 16
 const ICON_SIZE = Vector2(128, 160)
 const CELL_SIZE = ICON_SIZE + Vector2(PADDING, PADDING)
@@ -26,14 +26,18 @@ func _ready() -> void:
 		resized.connect(_init_grid)
 	else:
 		_init_grid()
+		resized.connect(_init_grid)
 	GlobalDragHandler.register_drop_target(self)
 
 func _init_grid():
 	var file_count : float = FileSystem.find_by_path(path).list_entries().size()
-	print(size.x)
-	grid_cols = (size.x ) / CELL_SIZE.x
-	grid_rows = ceil(file_count / grid_cols)
-	print(Vector2(grid_cols,grid_rows))
+	if path == "desktop":
+		grid_cols = (size.x - (MARGIN * 2)) / CELL_SIZE.x
+		grid_rows = (size.y ) / CELL_SIZE.y
+	else:
+		grid_cols = (size.x - (MARGIN * 2)) / CELL_SIZE.x
+		grid_rows = ceil(file_count / grid_cols)
+	print(Vector2(grid_rows, grid_cols))
 	slots.clear()
 	for child in get_children():
 		if child is FileEntryIcon:

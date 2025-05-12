@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bs36psj2wh5ll"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables/letter_unlock.gd" id="1_2sep8"]
+[ext_resource type="Script" uid="uid://cuyos2fkoofku" path="res://Scripts/Interactables/letter_unlock.gd" id="1_2sep8"]
 [ext_resource type="Texture2D" uid="uid://8qmjkrsn77t1" path="res://Assets/Sprites/mw_letters_FULL.png" id="2_21wjk"]
 [ext_resource type="PackedScene" uid="uid://cdmat1rhwyls" path="res://Scenes/InteractionArea.tscn" id="3_278r1"]
 
@@ -78,9 +78,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tvc8c"]
 _data = {
-"RESET": SubResource("Animation_hboke"),
-"deactivate": SubResource("Animation_i3i1p"),
-"float": SubResource("Animation_5u53b")
+&"RESET": SubResource("Animation_hboke"),
+&"deactivate": SubResource("Animation_i3i1p"),
+&"float": SubResource("Animation_5u53b")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ooi2x"]

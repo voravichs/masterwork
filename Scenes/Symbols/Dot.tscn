@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://brtd8briy4nkv"]
 
-[ext_resource type="Script" path="res://Scripts/Symbols/dot.gd" id="1_7od4n"]
+[ext_resource type="Script" uid="uid://dklar2gpajqum" path="res://Scripts/Symbols/dot.gd" id="1_7od4n"]
 [ext_resource type="Texture2D" uid="uid://cselsxqf5nyq" path="res://Assets/Sprites/flash_dot.png" id="1_nltcd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyuxn"]
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1j860"]
 _data = {
-"RESET": SubResource("Animation_px7mh"),
-"dot_flash": SubResource("Animation_wl0t6")
+&"RESET": SubResource("Animation_px7mh"),
+&"dot_flash": SubResource("Animation_wl0t6")
 }
 
 [node name="Dot" type="Node2D"]

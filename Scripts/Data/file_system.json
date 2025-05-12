@@ -1,88 +1,62 @@
 {
 	"name": "root",
 	"type": "folder",
-	"x": 0,
-	"y": 0,
 	"resource": "",
 	"children": [
 		{
 			"name": "desktop",
 			"type": "folder",
-			"x": 0,
-			"y": 0,
 			"resource": "",
 			"children": [
 				{
-					"name": "README",
+					"name": "WILL",
 					"type": "file",
-					"x": 0,
-					"y": 0,
-					"resource": "res://Presets/readme.tres",
-					"scene_path": ""
+					"resource": "uid://crc242hlu8dq6",
+					"scene_path": "uid://c7g6dag14tgys",
+					"scene_args": {
+						"text_file_path": "res://Scripts/Data/TextFiles/kt_will.txt",
+						"read_only": true
+					}
 				},
 				{
 					"name": "KAITO",
 					"type": "folder",
-					"x": 0,
-					"y": 1,
-					"resource": "res://Presets/kaito_folder.tres",
-					"children": [
-					
-					]
-				},
-				{
-					"name": "debug",
-					"type": "folder",
-					"x": 0,
-					"y": 1,
-					"resource": "res://Presets/kaito_folder.tres",
+					"resource": "uid://cb32hn4cee6n5",
 					"children": [
 						{
 							"name": "README",
 							"type": "file",
-							"x": 0,
-							"y": 0,
-							"resource": "res://Presets/readme.tres",
+							"resource": "uid://t7gey36tsg42",
 							"scene_path": ""
 						},
 						{
 							"name": "README",
 							"type": "file",
-							"x": 0,
-							"y": 1,
-							"resource": "res://Presets/readme2.tres",
+							"resource": "uid://cmmklufbvug43",
 							"scene_path": ""
 						},
 						{
 							"name": "README",
 							"type": "file",
-							"x": 0,
-							"y": 2,
-							"resource": "res://Presets/readme3.tres",
+							"resource": "uid://ddsbaujuti2jl",
 							"scene_path": ""
 						},
 						{
 							"name": "README",
 							"type": "file",
-							"x": 0,
-							"y": 3,
-							"resource": "res://Presets/readme4.tres",
+							"resource": "uid://ds3tvqrvmea24",
 							"scene_path": ""
 						},
 						{
 							"name": "README",
 							"type": "file",
-							"x": 1,
-							"y": 0,
-							"resource": "res://Presets/readme5.tres",
+							"resource": "uid://tgtlhey1hvxm",
 							"scene_path": ""
 						},
 						{
 							"name": "README",
 							"type": "file",
-							"x": 0,
-							"y": 1,
-							"resource": "res://Presets/readme6.tres",
+							"resource": "uid://mrydpf24766i",
 							"scene_path": ""
 						},
 					]

@@ -1,0 +1,14 @@
+LAST WILL AND TESTAMENT
+
+I, Kaito Tachibana, being of sound mind, do hereby declare this to be my Last Will and Testament, 
+hereby revoking any and all wills and codicils previously made by me.
+
+I declare any person who accesses this text file to be the executors of my will. I leave no material possessions or great fortune to my estate. I have naught buy my final creation, that I poured my soul into, to leave the world: what I would like to call "Tachibana's Masterwork."
+
+Tachibana's Masterwork is a program hiding within this custom operating system of my own creation. Those closest to me know my love for puzzles. Thus, I have left my creation behind lock and key, buried deep in the file system of this OS. I do this so that I can entrust Tachibana's Masterwork to those are worthy and capable of understanding it. I trust that you, as the executor of my will, shall carry forth my legacy.
+
+Seek the executable named "tachibana_masterwork.exe" within this file system. 
+
+I shall be eagerly watching your progress.
+
+-Kaito Tachibana 

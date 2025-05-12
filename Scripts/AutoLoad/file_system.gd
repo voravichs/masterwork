@@ -10,14 +10,23 @@ func _ready():
 func _build_entry(data: Dictionary, parent):
 	var entry : FileSystemEntry
 	if data.type == "folder":
-		entry = Folder.new(data.name, Vector2(data.y, data.x), data.resource, parent)
+		entry = Folder.new(data.name, data.resource, parent)
 		for child in data.children:
 			entry.add_folder_child(_build_entry(child, entry))
 	elif data.type == "file":
-		var scene = null
+		var scene_instance: Node = null
 		if data.has("scene_path"):
-			scene = load(data.scene_path)
-		entry = FileEntry.new(data.name, Vector2(data.y, data.x), data.resource, parent, scene)
+			var packed_scene: PackedScene = load(data.scene_path)
+			if packed_scene:
+				scene_instance = packed_scene.instantiate()
+				if data.has("scene_args") and typeof(data.scene_args) == TYPE_DICTIONARY:
+					var args: Dictionary = data.scene_args
+					for key in args.keys():
+						if key in scene_instance:
+							scene_instance.set(key, args[key])
+						else:
+							print_debug("Warning: scene instance has no variable or setter for key '%s'" % key)
+		entry = FileEntry.new(data.name, data.resource, parent, scene_instance)
 	return entry
 
 func get_root():

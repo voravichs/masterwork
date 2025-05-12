@@ -1,6 +1,6 @@
 [gd_scene load_steps=43 format=3 uid="uid://cbqsq8y0c1ymw"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/character.gd" id="1_dxvy3"]
+[ext_resource type="Script" uid="uid://b81lrdier4m3i" path="res://Scripts/Characters/character.gd" id="1_dxvy3"]
 [ext_resource type="Texture2D" uid="uid://dscyalph8jb4t" path="res://Assets/Sprites/Characters/kaito-sheet.png" id="1_ju5v7"]
 [ext_resource type="Texture2D" uid="uid://bopgek2pm1w4h" path="res://Assets/Sprites/NormalMaps/kaito-sheet_n.png" id="3_1dn16"]
 
@@ -316,23 +316,23 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kmbsb"]
 _data = {
-"RESET": SubResource("Animation_8ufcx"),
-"idle_b": SubResource("Animation_0qob4"),
-"idle_bl": SubResource("Animation_6ogm5"),
-"idle_br": SubResource("Animation_ln120"),
-"idle_f": SubResource("Animation_2l8fp"),
-"idle_fl": SubResource("Animation_65qxo"),
-"idle_fr": SubResource("Animation_incua"),
-"idle_l": SubResource("Animation_ib5pd"),
-"idle_r": SubResource("Animation_hyoae"),
-"walk_b": SubResource("Animation_jx6nn"),
-"walk_bl": SubResource("Animation_b0fg6"),
-"walk_br": SubResource("Animation_eeykb"),
-"walk_f": SubResource("Animation_3dbmr"),
-"walk_fl": SubResource("Animation_niolf"),
-"walk_fr": SubResource("Animation_ah2yv"),
-"walk_l": SubResource("Animation_xjvex"),
-"walk_r": SubResource("Animation_xmifn")
+&"RESET": SubResource("Animation_8ufcx"),
+&"idle_b": SubResource("Animation_0qob4"),
+&"idle_bl": SubResource("Animation_6ogm5"),
+&"idle_br": SubResource("Animation_ln120"),
+&"idle_f": SubResource("Animation_2l8fp"),
+&"idle_fl": SubResource("Animation_65qxo"),
+&"idle_fr": SubResource("Animation_incua"),
+&"idle_l": SubResource("Animation_ib5pd"),
+&"idle_r": SubResource("Animation_hyoae"),
+&"walk_b": SubResource("Animation_jx6nn"),
+&"walk_bl": SubResource("Animation_b0fg6"),
+&"walk_br": SubResource("Animation_eeykb"),
+&"walk_f": SubResource("Animation_3dbmr"),
+&"walk_fl": SubResource("Animation_niolf"),
+&"walk_fr": SubResource("Animation_ah2yv"),
+&"walk_l": SubResource("Animation_xjvex"),
+&"walk_r": SubResource("Animation_xmifn")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sky7b"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://jridh1in85vb"]
 
-[ext_resource type="Script" path="res://Scripts/UI/inventory_ui.gd" id="1_lbi8p"]
-[ext_resource type="Script" path="res://Scripts/UI/inventory_slot.gd" id="2_nt08t"]
+[ext_resource type="Script" uid="uid://do13kqjtpkokm" path="res://Scripts/UI/inventory_ui.gd" id="1_lbi8p"]
+[ext_resource type="Script" uid="uid://jksol6hcokj5" path="res://Scripts/UI/inventory_slot.gd" id="2_nt08t"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="3_miday"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxauo"]

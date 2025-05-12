@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://b13ifkbblhsyk"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables/overworld_item.gd" id="1_ygkdm"]
+[ext_resource type="Script" uid="uid://kum3l86e2dd3" path="res://Scripts/Interactables/overworld_item.gd" id="1_ygkdm"]
 [ext_resource type="PackedScene" uid="uid://cdmat1rhwyls" path="res://Scenes/InteractionArea.tscn" id="2_ayttd"]
 [ext_resource type="Texture2D" uid="uid://ch1sns43gfcon" path="res://Assets/Sprites/16x16 RPG Item Pack/Item__01.png" id="2_scyrl"]
-[ext_resource type="Script" path="res://Scripts/Interactables/item_interaction_controller.gd" id="2_v4n1q"]
+[ext_resource type="Script" uid="uid://0w76x8frsmnk" path="res://Scripts/Interactables/item_interaction_controller.gd" id="2_v4n1q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkqwc"]
 radius = 24.0832

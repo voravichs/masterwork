@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DesktopResource" load_steps=3 format=3 uid="uid://ddsbaujuti2jl"]
 
-[ext_resource type="Script" path="res://Scripts/Resources/desktop_icon_resource.gd" id="1_0spm0"]
+[ext_resource type="Script" uid="uid://cc3xudijv5xgd" path="res://Scripts/Resources/desktop_icon_resource.gd" id="1_0spm0"]
 [ext_resource type="Texture2D" uid="uid://cgmd2vib15j5v" path="res://Assets/Sprites/Environment/scroll.png" id="2_qnkov"]
 
 [resource]

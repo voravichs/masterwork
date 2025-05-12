@@ -28,7 +28,13 @@ func open_file_entry(path: String):
 		file_explorer.path = path
 		file_explorer.close.connect(_on_close_file_ex)
 		add_child(file_explorer)
+	else:
+		file_found.scene_reference.close.connect(_on_close_file)
+		add_child(file_found.scene_reference)
 
 func _on_close_file_ex(fex: FileExplorer):
-	GlobalDragHandler.unregister_drop_target(fex.icon_manager_ref)
+	GlobalDragHandler.unregister_drop_target(fex.icon_manager)
 	remove_child(fex)
+
+func _on_close_file(node: Node):
+	remove_child(node)
