@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlp8fw8237au"]
+[gd_scene load_steps=4 format=3 uid="uid://dlp8fw8237au"]
 
-[ext_resource type="PackedScene" uid="uid://2ixnfwfvytav" path="res://Scenes/Nezu.tscn" id="1_7hxjc"]
 [ext_resource type="Script" uid="uid://bhfwdjs4ic634" path="res://Scenes/Desktop/main_screen.gd" id="1_brnow"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjq21"]
@@ -48,6 +47,7 @@ grow_vertical = 2
 expand_mode = 3
 
 [node name="Taskbar" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -66,6 +66,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_eotkw")
-
-[node name="Cursor" parent="." instance=ExtResource("1_7hxjc")]
-z_index = 20

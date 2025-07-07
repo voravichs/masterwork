@@ -12,11 +12,23 @@
 					"name": "WILL",
 					"type": "file",
 					"resource": "uid://crc242hlu8dq6",
+					"lock_id": "A",
 					"scene_path": "uid://c7g6dag14tgys",
 					"scene_args": {
 						"text_file_path": "res://Scripts/Data/TextFiles/kt_will.txt",
 						"read_only": true
-					}
+					},
+				},
+				{
+					"name": "WILL",
+					"type": "file",
+					"resource": "uid://crc242hlu8dq6",
+					"lock_id": "B",
+					"scene_path": "uid://c7g6dag14tgys",
+					"scene_args": {
+						"text_file_path": "res://Scripts/Data/TextFiles/kt_will.txt",
+						"read_only": true
+					},
 				},
 				{
 					"name": "KAITO",
@@ -60,6 +72,12 @@
 							"scene_path": ""
 						},
 					]
+				},
+				{
+					"name": "",
+					"type": "key",
+					"key_id": "A",
+					"resource": "uid://i7y7f6gdhif2",
 				},
 			]
 		},

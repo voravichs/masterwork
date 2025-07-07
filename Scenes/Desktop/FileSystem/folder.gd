@@ -2,6 +2,8 @@ extends FileSystemEntry
 class_name Folder
 
 var children: Array = []
+var locked : bool
+var lock_id : String
 
 func _init(_name: String, _resource_path: String, _parent=null):
 	super(_name, _resource_path, _parent)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DesktopResource" load_steps=3 format=3 uid="uid://cb32hn4cee6n5"]
+
+[ext_resource type="Script" uid="uid://cc3xudijv5xgd" path="res://Scripts/Resources/desktop_icon_resource.gd" id="1_c1lpw"]
+[ext_resource type="Texture2D" uid="uid://erklue36cvge" path="res://Assets/Sprites/folder.png" id="2_cluog"]
+
+[resource]
+script = ExtResource("1_c1lpw")
+type = 0
+name = "Folder"
+texture = ExtResource("2_cluog")
+is_key = false

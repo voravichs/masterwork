@@ -37,7 +37,6 @@ func _init_grid():
 	else:
 		grid_cols = (size.x - (MARGIN * 2)) / CELL_SIZE.x
 		grid_rows = ceil(file_count / grid_cols)
-	print(Vector2(grid_rows, grid_cols))
 	slots.clear()
 	for child in get_children():
 		if child is FileEntryIcon:
@@ -79,6 +78,10 @@ func global_to_cell(global_mouse_pos: Vector2) -> Vector2i:
 		floor((local.x - MARGIN) / CELL_SIZE.x),
 		floor((local.y) / CELL_SIZE.y)
 	)
+	if cell.y > grid_rows - 1:
+		return Vector2(-1,-1)
+	if cell.x > grid_cols - 1:
+		return Vector2(-1,-1)
 	return cell
 
 func get_next_open_slot() -> Vector2i:
@@ -116,6 +119,15 @@ func can_accept_drop(cell: Vector2i, icon: FileEntryIcon) -> bool:
 		return false
 	return true
 
+func key_to_lock(cell: Vector2i, key: FileEntryIcon) -> bool:
+	var curr_cell = slots[cell.y][cell.x]
+	var key_ref = key.file_system_entry
+	if curr_cell != null:
+		if "lock_id" in curr_cell.file_system_entry:
+			if curr_cell.file_system_entry.lock_id:
+				return key.file_system_entry.key_id == curr_cell.file_system_entry.lock_id
+	return false
+
 func receive_drop(icon: FileEntryIcon, cell: Vector2i) -> void:
 	if icon.get_parent():
 		icon.get_parent().remove_child(icon)
@@ -126,6 +138,13 @@ func receive_drop(icon: FileEntryIcon, cell: Vector2i) -> void:
 	# update path and coords
 	icon.file_system_entry.path = "%s/%s" % [path, icon.file_system_entry.entry_name]
 	icon.file_system_entry.coords = cell
+
+func unlock_cell(cell: Vector2i) -> void:
+	var curr_cell = slots[cell.y][cell.x]
+	## TODO: ANIMATE THIS
+	curr_cell.lock.visible = false
+	curr_cell.icon.modulate.a = 1
+	curr_cell.label.modulate.a = 1
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_action_pressed("click"):

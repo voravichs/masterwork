@@ -17,18 +17,13 @@ func _process(delta):
 			# Calculate local_pos, potential drop cell coordinate in target
 			var local_pos = hovered_target.local.to_local(global_mouse)
 			var snap_cell : Vector2 = hovered_target.global_to_cell(global_mouse)
-			# Guides
-			if hovered_target.can_accept_drop(snap_cell, dragged_icon):
-				guide_panel.visible = true
-				guide_panel.position = hovered_target.grid_cell_to_position(snap_cell) \
-					+ hovered_target.local.global_position \
-					- Vector2(hovered_target.ICON_SIZE.x / 2, hovered_target.ICON_SIZE.y / 3)
-				if guide_panel.z_index < hovered_target.parent_z:
-					guide_panel.z_index = hovered_target.parent_z + 1
-				else:
-					guide_panel.z_index = 0
-				shadow_icon.visible = true
-				shadow_icon.position = global_mouse
+			if snap_cell != Vector2(-1, -1):
+				# Guides
+				if hovered_target.can_accept_drop(snap_cell, dragged_icon):
+					show_guide_shadow(snap_cell, hovered_target)
+				elif dragged_icon.desktop_resource.is_key:
+					if hovered_target.key_to_lock(snap_cell, dragged_icon):
+						show_guide_shadow(snap_cell, hovered_target)
 			else:
 				guide_panel.visible = false
 				shadow_icon.visible = false
@@ -36,6 +31,19 @@ func _process(delta):
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		finish_drag()
+
+func show_guide_shadow(snap_cell: Vector2, hovered_target: IconManager) -> void:
+	var global_mouse : Vector2 = get_global_mouse_position()
+	guide_panel.visible = true
+	guide_panel.position = hovered_target.grid_cell_to_position(snap_cell) \
+		+ hovered_target.local.global_position \
+		- Vector2(hovered_target.ICON_SIZE.x / 2, hovered_target.ICON_SIZE.y / 3)
+	if guide_panel.z_index < hovered_target.parent_z:
+		guide_panel.z_index = hovered_target.parent_z + 1
+	else:
+		guide_panel.z_index = 0
+	shadow_icon.visible = true
+	shadow_icon.position = global_mouse
 
 func get_drop_target_at(global_pos) -> IconManager:
 	for i in range(drop_targets.size() - 1, -1, -1):
@@ -69,6 +77,11 @@ func finish_drag():
 			if to_manager.can_accept_drop(snap_cell, dragged_icon):
 				from_manager.remove_icon(dragged_icon)
 				to_manager.receive_drop(dragged_icon, snap_cell)
+			elif dragged_icon.desktop_resource.is_key:
+				if to_manager.key_to_lock(snap_cell, dragged_icon):
+					print("POG")
+					from_manager.remove_icon(dragged_icon)
+					to_manager.unlock_cell(snap_cell)
 	dragged_icon = null
 	guide_panel.visible = false
 	shadow_icon.visible = false

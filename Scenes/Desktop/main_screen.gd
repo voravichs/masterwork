@@ -16,7 +16,8 @@ func _ready() -> void:
 	add_child(icons)
 
 func _on_double_click_icon(icon : FileEntryIcon):
-	open_file_entry(icon.desktop_resource.path)
+	if !icon.desktop_resource.is_key:
+		open_file_entry(icon.file_system_entry.path)
 
 func open_file_entry(path: String):
 	var file_found : FileSystemEntry = FileSystem.find_by_path(path)

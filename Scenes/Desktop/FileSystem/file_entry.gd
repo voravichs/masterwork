@@ -2,6 +2,8 @@ extends FileSystemEntry
 class_name FileEntry
 
 var scene_reference: Node = null
+var locked : bool
+var lock_id : String
 
 func _init(_name: String, _resource_path: String, _parent=null, _scene:Node=null):
 	super(_name, _resource_path, _parent)

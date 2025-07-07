@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DesktopResource" load_steps=3 format=3 uid="uid://i7y7f6gdhif2"]
+
+[ext_resource type="Script" uid="uid://cc3xudijv5xgd" path="res://Scripts/Resources/desktop_icon_resource.gd" id="1_55ywr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_55ywr"]
+load_path = "res://.godot/imported/key.png-61242fc10ac0712723a4c273e448a900.ctex"
+
+[resource]
+script = ExtResource("1_55ywr")
+type = 1
+name = "Key"
+texture = SubResource("CompressedTexture2D_55ywr")
+is_key = true
+metadata/_custom_type_script = "uid://cc3xudijv5xgd"

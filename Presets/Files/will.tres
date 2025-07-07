@@ -7,5 +7,5 @@
 script = ExtResource("1_g4a6s")
 type = 0
 name = "WILL"
-path = "desktop/WILL"
+path = ""
 texture = ExtResource("2_g4a6s")
